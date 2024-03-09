@@ -15,6 +15,17 @@
         crossorigin="anonymous"></script>
 
     <style>
+        .marketing .col-lg-4 {
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        /* rtl:begin:ignore */
+        .marketing .col-lg-4 p {
+            margin-right: .75rem;
+            margin-left: .75rem;
+        }
+
         #header_div {
             background-color: rgb(204, 0, 0);
         }
@@ -109,45 +120,119 @@
 </head>
 
 <body>
-        <div id="header_div">
-            <div class="container">
-                <header
-                    class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-                    <div class="col-md-3 mb-2 mb-md-0">
-                        <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
-                            <!-- <img src="" alt="">  -->
-                            <!-- Above line in place in case in future we want to use logo in header -->
-                        </a>
-                    </div>
+    <div id="header_div">
+        <div class="container">
+            <header
+                class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+                <div class="col-md-3 mb-2 mb-md-0">
+                    <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
+                        <!-- <img src="" alt="">  -->
+                        <!-- Above line in place in case in future we want to use logo in header -->
+                    </a>
+                </div>
 
-                    <ul class="nav nav-pills col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                        <li class="nav-item"><a href="#" class="nav-link px-2">Home</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link px-2">Features</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link px-2">Pricing</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link px-2">FAQs</a></li>
-                        <li class="nav-item"><a href="./about.html" class="nav-link active px-2">About</a></li>
-                    </ul>
-                    <div class="col-md-3 text-end"></div>
-                </header>
-            </div>
+                <ul class="nav nav-pills col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+                    <li class="nav-item"><a href="./index.html" class="nav-link px-2">Home</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link px-2">Features</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link px-2">Pricing</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link px-2">FAQs</a></li>
+                    <li class="nav-item"><a href="./about.html" class="nav-link active px-2">About</a></li>
+                </ul>
+                <div class="col-md-3 text-end"></div>
+            </header>
         </div>
+    </div>
 
     <main>
-        <p>
-            hello
-        </p>
+        <div class="container marketing">
+
+            <div class="row featurette">
+                <div class="col-md-7 order-md-2">
+                    <h2 class="featurette-heading fw-normal lh-1" style="text-align: center; margin-bottom: 2rem;">SE/ComS319 Construction of User Interfaces
+                        <br>
+                        <span class="text-body-secondary">Spring 2024</span>
+                    </h2>
+                    <p class="lead">Insert some text here giving basic sumary of the class. Possibly describe what has been talked about so far.</p>
+                </div>
+                <div class="col-md-5 order-md-1">
+                    <!-- <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
+                        height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500"
+                        preserveAspectRatio="xMidYMid slice" focusable="false">
+                        <title>Placeholder</title>
+                        <rect width="100%" height="100%" fill="var(--bs-secondary-bg)" /><text x="50%" y="50%"
+                            fill="var(--bs-secondary-color)" dy=".3em">500x500</text>
+                    </svg> -->
+                    <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
+                    height="500" src="./images/class_image.jpg" alt="Basic HTML image used on class canvas.">
+                </div>
+            </div>
+
+            <hr class="featurette-divider">
+
+            <!-- Three columns of text below the carousel -->
+            <div class="row">
+                <div class="col-lg-4" style="margin: 0rem auto 1.5rem;">
+                    <!-- <svg class="bd-placeholder-img rounded-circle" width="140" height="140"
+                        xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder"
+                        preserveAspectRatio="xMidYMid slice" focusable="false">
+                        <title>Placeholder</title>
+                        <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
+                    </svg> -->
+                    <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="./images/colemanImage.jpg"
+                        alt="Picture of the developer Coleman">
+                    <h2 class="fw-normal">Coleman Dimmer <br><a href="mailto:cddimmer@iastate.edu">cddimmer@iastate.edu</a></h2>
+                    <!-- "mailto:" found with online sources to optimize preferable email qualities." -->
+                    <p>insert self description here</p>
+                </div>
+                <!-- Which style prefered? top or bottom -->
+                <div class="col-lg-4" style="margin: 0rem auto 1.5rem;">
+                    <!-- <svg class="bd-placeholder-img rounded-circle" width="140" height="140"
+                        xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder"
+                        preserveAspectRatio="xMidYMid slice" focusable="false">
+                        <title>Placeholder</title>
+                        <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
+                    </svg> -->
+                    <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="" alt="Picture of the developer Jake">
+                    <h2 class="fw-normal">Jake Egler</h2>
+                    <!-- "mailto:" found with online sources to optimize preferable email qualities." -->
+                    <p><a href="mailto:jtegler@iastate.edu">jtegler@iastate.edu</a></p>
+                </div>
+            </div>
+
+            <hr class="featurette-divider">
+
+            <div class="row featurette">
+                <div class="col-md-7">
+                    <h2 class="featurette-heading fw-normal lh-1">And lastly, this one. <span
+                            class="text-body-secondary">Checkmate.</span></h2>
+                    <p class="lead">And yes, this is the last block of representative placeholder content. Again, not
+                        really intended to be actually read, simply here to give you a better view of what this would
+                        look like with some actual content. Your content.</p>
+                </div>
+                <div class="col-md-5">
+                    <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
+                        height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500"
+                        preserveAspectRatio="xMidYMid slice" focusable="false">
+                        <title>Placeholder</title>
+                        <rect width="100%" height="100%" fill="var(--bs-secondary-bg)" /><text x="50%" y="50%"
+                            fill="var(--bs-secondary-color)" dy=".3em">500x500</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
     </main>
 
     <div class="container">
         <footer class="py-3 my-4">
             <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
+                <li class="nav-item"><a href="./index.html" class="nav-link px-2 text-body-secondary">Home</a></li>
                 <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Features</a></li>
                 <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Pricing</a></li>
                 <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>
                 <li class="nav-item"><a href="./about.html" class="nav-link px-2 text-body-secondary">About</a></li>
             </ul>
-            <p class="text-center text-body-secondary">&copy; 2024 Com S 319 - Iowa State University<br>Coleman Dimmer - Jake Egler</p>
+            <p class="text-center text-body-secondary">&copy; 2024 Com S 319 - Iowa State University<br>Coleman Dimmer -
+                Jake Egler</p>
         </footer>
     </div>
 
