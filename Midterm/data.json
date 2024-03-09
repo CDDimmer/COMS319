@@ -1,0 +1,254 @@
+{
+    "Dorm Halls": [
+        {
+            "name": "Barton",
+            "location": "East Campus",
+            "hasAC": "False",
+            "floors" : 4,
+            "co-edHousing": "True",
+            "winterAccessable": "True",
+            "Notes" : ""
+        },
+        {
+            "name": "Birch",
+            "location": "East Campus",
+            "hasAC": "False",
+            "floors" : 4,
+            "co-edHousing": "False",
+            "winterAccessable": "True",
+            "Notes" : ""
+        },
+        {
+            "name": "Buchanan",
+            "location": "South Campus",
+            "hasAC": "True",
+            "floors" : 9,
+            "co-edHousing": "True",
+            "winterAccessable": "True",
+            "Notes" : "Suite housing"
+        },
+        {
+            "name": "Eaton",
+            "location": "West Campus",
+            "hasAC": "True",
+            "floors" : 4,
+            "co-edHousing": "Partial",
+            "winterAccessable": "True",
+            "Notes" : "Suite housing"
+        },
+        {
+            "name": "Elm",
+            "location": "East Campus",
+            "hasAC": "False",
+            "floors" : 4,
+            "co-edHousing": "False",
+            "winterAccessable": "True",
+            "Notes" : ""
+        },
+        {
+            "name": "Freeman",
+            "location": "East Campus",
+            "hasAC": "False",
+            "floors" : 4,
+            "co-edHousing": "True",
+            "winterAccessable": "True",
+            "Notes" : ""
+        },
+        {
+            "name": "Friley",
+            "location": "West Campus",
+            "hasAC": "Partial",
+            "floors" : 4,
+            "co-edHousing": "Partial",
+            "winterAccessable": "True",
+            "Notes" : ""
+        },
+        {
+            "name": "Geoffroy",
+            "location": "South Campus",
+            "hasAC": "True",
+            "floors" : 8,
+            "co-edHousing": "Partial",
+            "winterAccessable": "True",
+            "Notes" : ""
+        },
+        {
+            "name": "Helser",
+            "location": "West Campus",
+            "hasAC": "False",
+            "floors" : 4,
+            "co-edHousing": "False",
+            "winterAccessable": "True",
+            "Notes" : ""
+        },
+        {
+            "name": "Larch",
+            "location": "East Campus",
+            "hasAC": "True",
+            "floors" : 8,
+            "co-edHousing": "True",
+            "winterAccessable": "True",
+            "Notes" : ""
+        },
+        {
+            "name": "Linden",
+            "location": "East Campus",
+            "hasAC": "False",
+            "floors" : 3,
+            "co-edHousing": "Partial",
+            "winterAccessable": "True",
+            "Notes" : ""
+        },
+        {
+            "name": "Lyon",
+            "location": "East Campus",
+            "hasAC": "False",
+            "floors" : 4,
+            "co-edHousing": "True",
+            "winterAccessable": "True",
+            "Notes" : ""
+        },
+        {
+            "name": "Maple",
+            "location": "East Campus",
+            "hasAC": "True",
+            "floors" : 8,
+            "co-edHousing": "False",
+            "winterAccessable": "True",
+            "Notes" : ""
+        },
+        {
+            "name": "Martin",
+            "location": "West Campus",
+            "hasAC": "True",
+            "floors" : 4,
+            "co-edHousing": "True",
+            "winterAccessable": "True",
+            "Notes" : ""
+        },
+        {
+            "name": "Oak",
+            "location": "East Campus",
+            "hasAC": "False",
+            "floors" : 4,
+            "co-edHousing": "False",
+            "winterAccessable": "True",
+            "Notes" : ""
+        },
+        {
+            "name": "Roberts",
+            "location": "East Campus",
+            "hasAC": "False",
+            "floors" : 3,
+            "co-edHousing": "False",
+            "winterAccessable": "True",
+            "Notes" : ""
+        },
+        {
+            "name": "Wallace",
+            "location": "South Campus",
+            "hasAC": "False",
+            "floors" : 10,
+            "co-edHousing": "True",
+            "winterAccessable": "True",
+            "Notes" : ""
+        },
+        {
+            "name": "Welch",
+            "location": "East Campus",
+            "hasAC": "False",
+            "floors" : 4,
+            "co-edHousing": "False",
+            "winterAccessable": "True",
+            "Notes" : ""
+        },
+        {
+            "name": "Willow",
+            "location": "East Campus",
+            "hasAC": "True",
+            "floors" : 8,
+            "co-edHousing": "True",
+            "winterAccessable": "True",
+            "Notes" : ""
+        },
+        {
+            "name": "Wilson",
+            "location": "South Campus",
+            "hasAC": "False",
+            "floors" : 10,
+            "co-edHousing": "True",
+            "winterAccessable": "True",
+            "Notes" : ""
+        }
+    ],
+    "Cafes": [
+        {
+            "name": "Business Cafe"
+        },
+        {
+            "name": "Gentle Doctor Cafe"
+        },
+        {
+            "name": "Courtyard Cafe"
+        },
+        {
+            "name": "MU Market and Cafe"
+        },
+        {
+            "name": "Bookends Cafe"
+        },
+        {
+            "name": "Design Cafe"
+        },
+        {
+            "name": "Business Cafe"
+        },
+        {
+            "name": "Roasterie"
+        }
+    ],
+    "Convenience Store": [
+        {
+            "name": "West Side Market"
+        },
+        {
+            "name": "East Side Market"
+        }
+    ],
+    "Dining Center": [
+        {
+            "name": "Union Drive Marketplace"
+        },
+        {
+            "name": "Seasons Marketplace"
+        }
+    ],
+    "Fast Casual": [
+        {
+            "name": "Memorial Union Food Court"
+        },
+        {
+            "name": "Lance and Ellie's"
+        },
+        {
+            "name": "Heaping Plato"
+        },
+        {
+            "name": "Hawthorn"
+        },
+        {
+            "name": "Memorial Union Food Court"
+        },
+        {
+            "name": "Clyde's"
+        }
+    ],
+    "Get & Go": [
+        {
+            "name": "Get & Go @ East Side Market"
+        },
+        {
+            "name": "Get & Go @ West Side Market"
+        }
+    ]
+}
