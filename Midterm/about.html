@@ -2,11 +2,15 @@
 <html lang="en" data-bs-theme="auto">
 
 <head>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="Coleman Dimmer, Jake Egler, and Bootstrap contributors">
-    <title>About</title>
+    <meta name="generator" content="Hugo 0.118.2">
+    <title>About Us</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/dashboard/">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -14,7 +18,26 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+
     <style>
+
+        .nav-link {
+            --bs-nav-link-hover-color: white;
+        }
+
+        .border {
+            border: var(--bs-border-width) var(--bs-border-style) #fada63 !important;
+        }
+
+        .nav-link {
+            --bs-nav-link-color: #fdc72f;
+        }
+
+        .bg-sidebar {
+            background-color: rgb(204, 0, 0);
+        }
+
         .marketing .col-lg-4 {
             margin-bottom: 1.5rem;
             text-align: center;
@@ -26,19 +49,44 @@
             margin-left: .75rem;
         }
 
-        #header_div {
-            background-color: rgb(204, 0, 0);
+        .bi {
+            display: inline-block;
+            width: 1rem;
+            height: 1rem;
         }
 
-        .nav-link {
-            --bs-nav-link-color: #fdc72f;
+        @media (min-width: 768px) {
+            .sidebar .offcanvas-lg {
+                position: -webkit-sticky;
+                position: sticky;
+                top: 48px;
+            }
+
+            .navbar-search {
+                display: block;
+            }
         }
 
-        .nav-pills .nav-link.active {
-            font-weight: bold;
-            color: #822434;
-            background-color: #fada63;
+        .sidebar .nav-link {
+            font-size: .875rem;
+            font-weight: 500;
         }
+
+        .sidebar-heading {
+            font-size: .75rem;
+        }
+
+        .navbar-brand {
+            padding-top: .75rem;
+            padding-bottom: .75rem;
+            background-color: rgba(0, 0, 0, .25);
+            box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);
+        }
+
+        .navbar .form-control {
+            padding: .75rem 1rem;
+        }
+
 
         .bd-placeholder-img {
             font-size: 1.125rem;
@@ -117,125 +165,240 @@
             display: block !important;
         }
     </style>
+
+    <!-- Custom styles for this template -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
 </head>
 
 <body>
-    <div id="header_div">
-        <div class="container">
-            <header
-                class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-                <div class="col-md-3 mb-2 mb-md-0">
-                    <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
-                        <!-- <img src="" alt="">  -->
-                        <!-- Above line in place in case in future we want to use logo in header -->
-                    </a>
-                </div>
 
-                <ul class="nav nav-pills col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                    <li class="nav-item"><a href="./index.html" class="nav-link px-2">Home</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link px-2">Features</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link px-2">Pricing</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link px-2">FAQs</a></li>
-                    <li class="nav-item"><a href="./about.html" class="nav-link active px-2">About</a></li>
-                </ul>
-                <div class="col-md-3 text-end"></div>
-            </header>
+    <header class="navbar sticky-top flex-md-nowrap p-0 shadow" data-bs-theme="dark" style="border-bottom: #fada63 .2em solid; background: #a71931;">
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="./index.html"
+            style="text-align: center;"><strong>Cy's Finds</strong></a>
+    </header>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="sidebar border border-right col-md-3 col-lg-2 p-0 bg-sidebar">
+                <div class="offcanvas-md offcanvas-end bg-sidebar" tabindex="-1" id="sidebarMenu"
+                    aria-labelledby="sidebarMenuLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="sidebarMenuLabel">Cy's Finds</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                            data-bs-target="#sidebarMenu" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="./dorms.html">
+                                    <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
+                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round">
+                                        </g>
+                                        <g id="SVGRepo_iconCarrier">
+                                            <path
+                                                d="M5 9.77746V16.2C5 17.8802 5 18.7203 5.32698 19.362C5.6146 19.9265 6.07354 20.3854 6.63803 20.673C6.78894 20.7499 6.95082 20.8087 7.13202 20.8537M21 12L15.5668 5.96399C14.3311 4.59122 13.7133 3.90484 12.9856 3.65144C12.3466 3.42888 11.651 3.42893 11.0119 3.65159C10.2843 3.90509 9.66661 4.59157 8.43114 5.96452L3 12M19 5.00002V16.2C19 17.8802 19 18.7203 18.673 19.362C18.3854 19.9265 17.9265 20.3854 17.362 20.673C17.2111 20.7499 17.0492 20.8087 16.868 20.8537M7.13202 20.8537C7.65017 18.6448 9.63301 17 12 17C14.367 17 16.3498 18.6448 16.868 20.8537M7.13202 20.8537C7.72133 21 8.51495 21 9.8 21H14.2C15.485 21 16.2787 21 16.868 20.8537M14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12Z"
+                                                stroke="#fdc72f" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                    Dorm Halls
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link d-flex align-items-center gap-2" href="./cafes.html">
+                                    <svg width="20px" height="20px" viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg" stroke="#ffffff" fill="none">
+                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round">
+                                        </g>
+                                        <g id="SVGRepo_iconCarrier">
+                                            <path
+                                                d="M18.5 7H19C19.4647 7 19.697 7 19.8902 7.03843C20.6836 7.19624 21.3038 7.81644 21.4616 8.60982C21.5 8.80302 21.5 9.03535 21.5 9.5C21.5 9.96465 21.5 10.197 21.4616 10.3902C21.3038 11.1836 20.6836 11.8038 19.8902 11.9616C19.697 12 19.4647 12 19 12H18.5M3 20H21M12 17C10.6055 17 9.90821 17 9.33277 16.8619C7.50453 16.4229 6.07707 14.9955 5.63815 13.1672C5.5 12.5918 5.5 11.8945 5.5 10.5L5.5 7.2C5.5 6.0799 5.5 5.51984 5.71799 5.09202C5.90973 4.7157 6.21569 4.40974 6.59202 4.21799C7.01984 4 7.57989 4 8.7 4L15.3 4C16.4201 4 16.9802 4 17.408 4.21799C17.7843 4.40973 18.0903 4.71569 18.282 5.09202C18.5 5.51984 18.5 6.07989 18.5 7.2V10.5C18.5 11.8945 18.5 12.5918 18.3619 13.1672C17.9229 14.9955 16.4955 16.4229 14.6672 16.8619C14.0918 17 13.3945 17 12 17Z"
+                                                stroke="#fdc72f" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                    Cafes
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link d-flex align-items-center gap-2" href="./stores.html">
+                                    <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
+                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round">
+                                        </g>
+                                        <g id="SVGRepo_iconCarrier">
+                                            <path
+                                                d="M21 18L20.1703 11.7771C20.0391 10.7932 19.9735 10.3012 19.7392 9.93082C19.5327 9.60444 19.2362 9.34481 18.8854 9.1833C18.4873 9 17.991 9 16.9983 9H7.00165C6.00904 9 5.51274 9 5.11461 9.1833C4.76381 9.34481 4.46727 9.60444 4.26081 9.93082C4.0265 10.3012 3.96091 10.7932 3.82972 11.7771L3 18M21 18H3M21 18V19.4C21 19.9601 21 20.2401 20.891 20.454C20.7951 20.6422 20.6422 20.7951 20.454 20.891C20.2401 21 19.9601 21 19.4 21H4.6C4.03995 21 3.75992 21 3.54601 20.891C3.35785 20.7951 3.20487 20.6422 3.10899 20.454C3 20.2401 3 19.9601 3 19.4V18M7.5 12V12.01M10.5 12V12.01M9 15V15.01M12 15V15.01M15 15V15.01M13.5 12V12.01M16.5 12V12.01M9 9V6M5.8 6H12.2C12.48 6 12.62 6 12.727 5.9455C12.8211 5.89757 12.8976 5.82108 12.9455 5.727C13 5.62004 13 5.48003 13 5.2V3.8C13 3.51997 13 3.37996 12.9455 3.273C12.8976 3.17892 12.8211 3.10243 12.727 3.0545C12.62 3 12.48 3 12.2 3H5.8C5.51997 3 5.37996 3 5.273 3.0545C5.17892 3.10243 5.10243 3.17892 5.0545 3.273C5 3.37996 5 3.51997 5 3.8V5.2C5 5.48003 5 5.62004 5.0545 5.727C5.10243 5.82108 5.17892 5.89757 5.273 5.9455C5.37996 6 5.51997 6 5.8 6Z"
+                                                stroke="#fdc72f" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                    Convenience Stores
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link d-flex align-items-center gap-2" href="./dining.html">
+                                    <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
+                                        xmlns=" http://www.w3.org/2000/svg" stroke="#ffffff">
+                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round">
+                                        </g>
+                                        <g id="SVGRepo_iconCarrier">
+                                            <path
+                                                d="M8 21V3M15 21V3C17.2091 3 19 4.79086 19 7V9C19 11.2091 17.2091 13 15 13M11 3V8C11 9.65685 9.65685 11 8 11C6.34315 11 5 9.65685 5 8V3"
+                                                stroke="#fdc72f" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                    Dining Centers
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link d-flex align-items-center gap-2" href="./fast-casual.html">
+                                    <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
+                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round">
+                                        </g>
+                                        <g id="SVGRepo_iconCarrier">
+                                            <path
+                                                d="M15.7639 7C16.3132 6.38625 17.1115 6 18 6C19.6569 6 21 7.34315 21 9C21 10.6569 19.6569 12 18 12H3M8.50926 4.66667C8.87548 4.2575 9.40767 4 10 4C11.1046 4 12 4.89543 12 6C12 7.10457 11.1046 8 10 8H3M11.5093 19.3333C11.8755 19.7425 12.4077 20 13 20C14.1046 20 15 19.1046 15 18C15 16.8954 14.1046 16 13 16H3"
+                                                stroke="#fdc72f" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                    Fast & Casual
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link d-flex align-items-center gap-2" href="./get-go.html">
+                                    <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round">
+                                        </g>
+                                        <g id="SVGRepo_iconCarrier">
+                                            <path
+                                                d="M7.2998 5H22L20 12H8.37675M21 16H9L7 3H4M4 8H2M5 11H2M6 14H2M10 20C10 20.5523 9.55228 21 9 21C8.44772 21 8 20.5523 8 20C8 19.4477 8.44772 19 9 19C9.55228 19 10 19.4477 10 20ZM21 20C21 20.5523 20.5523 21 20 21C19.4477 21 19 20.5523 19 20C19 19.4477 19.4477 19 20 19C20.5523 19 21 19.4477 21 20Z"
+                                                stroke="#fdc72f" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                    Get & Go
+                                </a>
+                            </li>
+                        </ul>
+
+                        <hr class="my-3" style="color: #fdc72f;">
+
+                        <ul class="nav flex-column mb-auto">
+                            <li class="nav-item">
+                                <a class="nav-link d-flex align-items-center gap-2" href="./about.html">
+                                    <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round">
+                                        </g>
+                                        <g id="SVGRepo_iconCarrier">
+                                            <path
+                                                d="M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z"
+                                                stroke="#fdc72f" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round"></path>
+                                            <path d="M12 14C8.13401 14 5 17.134 5 21H19C19 17.134 15.866 14 12 14Z"
+                                                stroke="#fdc72f" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round"></path>
+                                        </g>
+                                    </svg>
+                                    About Us
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" style="margin-top: 1em;">
+                <div class="container marketing">
+
+                    <div class="row featurette">
+                        <div class="col-md-7 order-md-2">
+                            <h2 class="featurette-heading fw-normal lh-1"
+                                style="text-align: center; margin-bottom: 2rem;">SE/ComS319 Construction of User
+                                Interfaces
+                                <br>
+                                <span class="text-body-secondary">Spring 2024</span>
+                                <br>
+                                <span class="text-body-secondary">March 8th, 2024</span>
+                            </h2>
+                            <p class="lead">
+                                Com S 319 is a class at Iowa State University that teaches about website based
+                                programming. The professor for Com S 319 is Ali Jannesari and the course is organized by
+                                Professor Abraham Aldaco.
+                            </p>
+                        </div>
+                        <div class="col-md-5 order-md-1">
+                            <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
+                                width="500" height="500" src="./images/class_image.jpg"
+                                alt="Basic HTML image used on class canvas.">
+                        </div>
+                    </div>
+
+                    <hr class="featurette-divider">
+
+                    <div class="row">
+                        <div class="col-lg-4" style="margin: 0rem auto 1.5rem;">
+                            <!-- <svg class="bd-placeholder-img rounded-circle" width="140" height="140"
+                                xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder"
+                                preserveAspectRatio="xMidYMid slice" focusable="false">
+                                <title>Placeholder</title>
+                                <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
+                            </svg> -->
+                            <img class="bd-placeholder-img rounded-circle" width="140" height="140"
+                                src="./images/colemanImage.jpg" alt="Picture of the developer Coleman">
+                            <h2 class="fw-normal">Coleman Dimmer <br><a
+                                    href="mailto:cddimmer@iastate.edu">cddimmer@iastate.edu</a></h2>
+                            <!-- "mailto:" found with online sources to optimize preferable email qualities." -->
+                            <p>
+                                I am student at Iowa State University. I am Computer Science major with minors in cyber
+                                security and data science. I have experience with many languages, including: Java,
+                                Python, C/C++, and more.
+                            </p>
+                        </div>
+                        <!-- Which style prefered? top or bottom -->
+                        <div class="col-lg-4" style="margin: 0rem auto 1.5rem;">
+                            <svg class="bd-placeholder-img rounded-circle" width="140" height="140"
+                                xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder"
+                                preserveAspectRatio="xMidYMid slice" focusable="false">
+                                <title>Placeholder</title>
+                                <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
+                            </svg>
+                            <!-- <img class="bd-placeholder-img rounded-circle" width="140" height="140" src=""
+                                alt="Picture of the developer Jake"> -->
+                            <h2 class="fw-normal">Jake Egler <br> <a
+                                    href="mailto:jtegler@iastate.edu">jtegler@iastate.edu</a></h2>
+                            <p>I am a senior computer science student at Iowa State University. I also have experience
+                                with Onshape CAD software and making electronics.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </main>
         </div>
     </div>
 
-    <main>
-        <div class="container marketing">
-
-            <div class="row featurette">
-                <div class="col-md-7 order-md-2">
-                    <h2 class="featurette-heading fw-normal lh-1" style="text-align: center; margin-bottom: 2rem;">SE/ComS319 Construction of User Interfaces
-                        <br>
-                        <span class="text-body-secondary">Spring 2024</span>
-                    </h2>
-                    <p class="lead">Insert some text here giving basic sumary of the class. Possibly describe what has been talked about so far.</p>
-                </div>
-                <div class="col-md-5 order-md-1">
-                    <!-- <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
-                        height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500"
-                        preserveAspectRatio="xMidYMid slice" focusable="false">
-                        <title>Placeholder</title>
-                        <rect width="100%" height="100%" fill="var(--bs-secondary-bg)" /><text x="50%" y="50%"
-                            fill="var(--bs-secondary-color)" dy=".3em">500x500</text>
-                    </svg> -->
-                    <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
-                    height="500" src="./images/class_image.jpg" alt="Basic HTML image used on class canvas.">
-                </div>
-            </div>
-
-            <hr class="featurette-divider">
-
-            <!-- Three columns of text below the carousel -->
-            <div class="row">
-                <div class="col-lg-4" style="margin: 0rem auto 1.5rem;">
-                    <!-- <svg class="bd-placeholder-img rounded-circle" width="140" height="140"
-                        xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder"
-                        preserveAspectRatio="xMidYMid slice" focusable="false">
-                        <title>Placeholder</title>
-                        <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
-                    </svg> -->
-                    <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="./images/colemanImage.jpg"
-                        alt="Picture of the developer Coleman">
-                    <h2 class="fw-normal">Coleman Dimmer <br><a href="mailto:cddimmer@iastate.edu">cddimmer@iastate.edu</a></h2>
-                    <!-- "mailto:" found with online sources to optimize preferable email qualities." -->
-                    <p>insert self description here</p>
-                </div>
-                <!-- Which style prefered? top or bottom -->
-                <div class="col-lg-4" style="margin: 0rem auto 1.5rem;">
-                    <!-- <svg class="bd-placeholder-img rounded-circle" width="140" height="140"
-                        xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder"
-                        preserveAspectRatio="xMidYMid slice" focusable="false">
-                        <title>Placeholder</title>
-                        <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
-                    </svg> -->
-                    <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="" alt="Picture of the developer Jake">
-                    <h2 class="fw-normal">Jake Egler</h2>
-                    <!-- "mailto:" found with online sources to optimize preferable email qualities." -->
-                    <p><a href="mailto:jtegler@iastate.edu">jtegler@iastate.edu</a></p>
-                </div>
-            </div>
-
-            <hr class="featurette-divider">
-
-            <div class="row featurette">
-                <div class="col-md-7">
-                    <h2 class="featurette-heading fw-normal lh-1">And lastly, this one. <span
-                            class="text-body-secondary">Checkmate.</span></h2>
-                    <p class="lead">And yes, this is the last block of representative placeholder content. Again, not
-                        really intended to be actually read, simply here to give you a better view of what this would
-                        look like with some actual content. Your content.</p>
-                </div>
-                <div class="col-md-5">
-                    <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
-                        height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500"
-                        preserveAspectRatio="xMidYMid slice" focusable="false">
-                        <title>Placeholder</title>
-                        <rect width="100%" height="100%" fill="var(--bs-secondary-bg)" /><text x="50%" y="50%"
-                            fill="var(--bs-secondary-color)" dy=".3em">500x500</text>
-                    </svg>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <div class="container">
-        <footer class="py-3 my-4">
-            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-                <li class="nav-item"><a href="./index.html" class="nav-link px-2 text-body-secondary">Home</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Features</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Pricing</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>
-                <li class="nav-item"><a href="./about.html" class="nav-link px-2 text-body-secondary">About</a></li>
-            </ul>
-            <p class="text-center text-body-secondary">&copy; 2024 Com S 319 - Iowa State University<br>Coleman Dimmer -
-                Jake Egler</p>
-        </footer>
-    </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.2/dist/chart.umd.js"
+        integrity="sha384-eI7PSr3L1XLISH8JdDII5YN/njoSsxfbrkCTnJrzXt+ENP5MOVBxD+l6sEG4zoLp"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
