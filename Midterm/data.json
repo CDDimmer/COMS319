@@ -275,8 +275,8 @@
     "ConvenienceStore": [
         {
             "name": "East Side Market",
-            "image": "",
-            "altText": "No picture found for East Side Market",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Iowa_State_Cyclones_logo.svg/2560px-Iowa_State_Cyclones_logo.svg.png",
+            "altText": "No picture found for East Side Market, utilizing ISU logo as default image",
             "desc": "The East Side Market is a small convienience located within the Maple-Willow-Larch commons. It also is a Get & Go location.",
             "Rating": 0
         },
@@ -344,8 +344,8 @@
     "GetGo": [
         {
             "name": "Get & Go @ East Side Market",
-            "image": "",
-            "altText": "No picture found for East Side Market",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Iowa_State_Cyclones_logo.svg/2560px-Iowa_State_Cyclones_logo.svg.png",
+            "altText": "No picture found for East Side Market, utilizing ISU logo as default image",
             "desc": "The East Side Market is a Get & Go location located within the Maple-Willow-Larch commons.  It is also a small convienience store.",
             "Rating": 0
         },
