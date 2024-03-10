@@ -335,18 +335,18 @@
                     </div>
                 </div>
 
-                <div id="FastCasLocs"></div>
+                <div id="DormLocs"></div>
                 <script>
                     fetch("./data.json")
                         .then(response => response.json())
                         .then(myData => loadLocations(myData));
 
                     function loadLocations(myData) {
-                        var mainContainer = document.getElementById("FastCasLocs");
-                        for (var i = 0; i < myData.DormHall.length; i++) {
-                            let name = myData.DormHall[i].name;
-                            let url = myData.DormHall[i].image;
-                            // let desc = myData.DormHalls[i].desc;
+                        var mainContainer = document.getElementById("DormLocs");
+                        for (var i = 0; i < myData.DormHalls.length; i++) {
+                            let name = myData.DormHalls[i].name;
+                            let url = myData.DormHalls[i].image;
+                            let desc = myData.DormHalls[i].desc;
                             // let url = myMovies.movies[i].url;
                             let div = document.createElement("div");
                             div.innerHTML = `
@@ -355,7 +355,7 @@
                                         <h2 class="featurette-heading fw-normal lh-1"
                                             style="text-align: center; margin-bottom: 2rem;">${name}
                                         </h2>
-                                        <p class="lead"></p>
+                                        <p class="lead">${desc}</p>
                                     </div>
                                     <div class="col-md-5 order-md-1">
                                         <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
