@@ -10,13 +10,14 @@ function loadLocations(myData) {
     let name = myData.DiningCenter[i].name;
     let url = myData.DiningCenter[i].image;
     let desc = myData.DiningCenter[i].desc;
+    let rating = myData.DiningCenter[i].Rating;
     // let url = myMovies.movies[i].url;
     let div = document.createElement("div");
     div.innerHTML = `
                                 <div class="row featurette">
                                     <div class="col-md-7 order-md-2">
                                         <h2 class="featurette-heading fw-normal lh-1"
-                                            style="text-align: center; margin-bottom: 2rem;">${name}
+                                            style="text-align: center; margin-bottom: 2rem;">${name} - ${rating}/5
                                         </h2>
                                         <p class="lead">${desc}</p>
                                     </div>
