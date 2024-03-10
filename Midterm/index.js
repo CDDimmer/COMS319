@@ -51,43 +51,6 @@ function loadLocations(myData) {
     mainContainer.appendChild(div);
   }
 
-  for (var i = 0; i < cat1.length; i++) {
-    let name = cat1[i].name;
-    let url = cat1[i].image;
-    let desc = cat1[i].desc;
-    let rating = cat1[i].Rating;
-    // let url = myMovies.movies[i].url;
-    let div = document.createElement("div");
-    div.innerHTML = `
-                            <div class="col">
-                                <div class="card shadow-sm">
-                                    <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
-                                        xmlns="http://www.w3.org/2000/svg" role="img"
-                                        aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice"
-                                        focusable="false">
-                                        <title>Placeholder</title>
-                                        <image href="${url}" height="225" width="100%" />
-                                    </svg>
-                                    <div class="card-body">
-                                        <p class="card-text"><strong>${name}</strong></p>
-                                        <p class="card-text">${desc}</p>
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <div class="btn-group">
-                                                <button type="button" class="btn btn-sm btn-outline-secondary">See
-                                                    Reviews</button>
-                                                <button type="button" class="btn btn-sm btn-outline-secondary">Post
-                                                    Review</button>
-                                            </div>
-                                            <small class="text-body-secondary">${rating}/5
-                                                rating</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-    `;
-    mainContainer.appendChild(div);
-  }
-
   for (var i = 0; i < cat2.length; i++) {
     let name = cat2[i].name;
     let url = cat2[i].image;
