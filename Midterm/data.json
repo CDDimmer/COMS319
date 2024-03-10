@@ -239,7 +239,7 @@
             "desc" : "The West Side Market is a small convienience located within the Union Drive Community Center. It also is a Get & Go location."
         }
     ],
-    "Dining Center": [
+    "DiningCenter": [
         {
             "name": "Union Drive Marketplace",
             "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIA9RimA-PFYn2viNh-Gm_D_iNw0Csg49xRMZimO20X61sY9fkzVHuk1McRkG0w0-03EU&usqp=CAU",
@@ -253,7 +253,7 @@
             "desc" : "Seasons Marketplace is a fully-staffed dining center located within Maple-Willow-Larch."
         }
     ],
-    "Fast Casual": [
+    "FastCasual": [
         {
             "name": "Lance and Ellie's",
             "url": "https://www.flyinghippo.com/wp-content/uploads/2021/01/le1.jpg",

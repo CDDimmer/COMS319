@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="Coleman Dimmer, Jake Egler, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.118.2">
-    <title>About Us</title>
+    <title>Get & Go</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/dashboard/">
 
@@ -331,43 +331,24 @@
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" style="margin-top: 1em;">
                 <div class="container py-3">
                     <div class="p-5 mb-p text-bg-dark container-fluid py-3">
-                        <h1 class="display-5 fw-bold text-center">Dorm Halls</h1>
+                        <h1 class="display-5 fw-bold text-center">Get & Go</h1>
                     </div>
                 </div>
 
                 <div id="GetGoLocs"></div>
-                <script>
-                    fetch("./data.json")
-                        .then(response => response.json())
-                        .then(myGetGo => loadMovies(myGetGo));
-
-                    function loadMovies(myGetGo) {
-                        var mainContainer = document.getElementById("GetGoLocs");
-                        for (var i = 0; i < myGetGo.GetGo.length; i++) {
-                            let name = myGetGo.GetGo[i].name;
-                            let url = myGetGo.GetGo[i].url;
-                            let desc = myGetGo.GetGo[i].desc;
-                            // let url = myMovies.movies[i].url;
-                            let div = document.createElement("div");
-                            div.innerHTML = `
-                                <div class="row featurette">
-                                    <div class="col-md-7 order-md-2">
-                                        <h2 class="featurette-heading fw-normal lh-1"
-                                            style="text-align: center; margin-bottom: 2rem;">${name}
-                                        </h2>
-                                        <p class="lead">${desc}</p>
-                                    </div>
-                                    <div class="col-md-5 order-md-1">
-                                        <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
-                                            width="500" height="500" src="${url}">
-                                    </div>
-                                </div>
-
-                                <hr class="featurette-divider">`;
-                            mainContainer.appendChild(div);
-                        }
-                    }
-                </script>
+                <script src="./get-go.js"></script>
+                <div class="row featurette">
+                    <div class="col-md-7 order-md-2">
+                        <h2 class="featurette-heading fw-normal lh-1" style="text-align: center; margin-bottom: 2rem;">
+                            Missing something?
+                        </h2>
+                        <p class="lead">Let us know if we missed something so we can add it onto our site.</p>
+                    </div>
+                    <div class="col-md-5 order-md-1">
+                        <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
+                            width="500" height="500" src="https://cdn-icons-png.flaticon.com/512/25/25400.png">
+                    </div>
+                </div>
 
                 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.2/dist/chart.umd.js"
                     integrity="sha384-eI7PSr3L1XLISH8JdDII5YN/njoSsxfbrkCTnJrzXt+ENP5MOVBxD+l6sEG4zoLp"
