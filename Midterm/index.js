@@ -38,7 +38,7 @@ function loadLocations(myData) {
                                         <p class="card-text">AC: ${ac}</p>
                                         <p class="card-text">CoEd: ${coed}</p>
                                         <p class="card-text">Floors: ${floors}</p>
-                                        <p class="card-text">AC: ${location}</p>
+                                        <p class="card-text">Location: ${location}</p>
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div class="btn-group">
                                                 <button type="button" class="btn btn-sm btn-outline-secondary">See
