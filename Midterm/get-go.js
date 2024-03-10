@@ -1,6 +1,8 @@
-fetch("./data.json")
-  .then((response) => response.json())
-  .then((myData) => loadLocations(myData));
+document.addEventListener("DOMContentLoaded", function (event) {
+  fetch("./data.json")
+    .then((response) => response.json())
+    .then((myData) => loadLocations(myData));
+});
 
 function loadLocations(myData) {
   var mainContainer = document.getElementById("GetGoLocs");
