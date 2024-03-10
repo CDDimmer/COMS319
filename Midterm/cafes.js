@@ -6,7 +6,7 @@ function loadLocations(myData) {
   var mainContainer = document.getElementById("CafeLocs");
   for (var i = 0; i < myData.GetGo.length; i++) {
     let name = myData.Cafes[i].name;
-    let url = myData.Cafes[i].url;
+    let url = myData.Cafes[i].image;
     let desc = myData.Cafes[i].desc;
     // let url = myMovies.movies[i].url;
     let div = document.createElement("div");

@@ -6,7 +6,7 @@ function loadLocations(myData) {
   var mainContainer = document.getElementById("FastCasLocs");
   for (var i = 0; i < myData.GetGo.length; i++) {
     let name = myData.FastCasual[i].name;
-    let url = myData.FastCasual[i].url;
+    let url = myData.FastCasual[i].image;
     let desc = myData.FastCasual[i].desc;
     // let url = myMovies.movies[i].url;
     let div = document.createElement("div");

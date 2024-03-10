@@ -6,7 +6,7 @@ function loadLocations(myData) {
   var mainContainer = document.getElementById("GetGoLocs");
   for (var i = 0; i < myData.GetGo.length; i++) {
     let name = myData.GetGo[i].name;
-    let url = myData.GetGo[i].url;
+    let url = myData.GetGo[i].image;
     let desc = myData.GetGo[i].desc;
     // let url = myMovies.movies[i].url;
     let div = document.createElement("div");
