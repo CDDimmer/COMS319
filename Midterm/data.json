@@ -1,5 +1,5 @@
 {
-    "Dorm Halls": [
+    "DormHalls": [
         {
             "name": "Barton",
             "location": "East Campus",
@@ -272,7 +272,7 @@
             "Rating": 0
         }
     ],
-    "Convenience Store": [
+    "ConvenienceStore": [
         {
             "name": "East Side Market",
             "image": "",

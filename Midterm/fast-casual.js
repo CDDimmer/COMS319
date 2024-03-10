@@ -4,7 +4,7 @@ fetch("./data.json")
 
 function loadLocations(myData) {
   var mainContainer = document.getElementById("FastCasLocs");
-  for (var i = 0; i < myData.GetGo.length; i++) {
+  for (var i = 0; i < myData.FastCasual.length; i++) {
     let name = myData.FastCasual[i].name;
     let url = myData.FastCasual[i].image;
     let desc = myData.FastCasual[i].desc;

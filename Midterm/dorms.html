@@ -331,7 +331,7 @@
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" style="margin-top: 1em;">
                 <div class="container py-3">
                     <div class="p-5 mb-p text-bg-dark container-fluid py-3">
-                        <h1 class="display-5 fw-bold text-center">Fast & Casual</h1>
+                        <h1 class="display-5 fw-bold text-center">Dorm Halls</h1>
                     </div>
                 </div>
 
@@ -343,10 +343,10 @@
 
                     function loadLocations(myData) {
                         var mainContainer = document.getElementById("FastCasLocs");
-                        for (var i = 0; i < myData.GetGo.length; i++) {
-                            let name = myData.FastCasual[i].name;
-                            let url = myData.FastCasual[i].url;
-                            let desc = myData.FastCasual[i].desc;
+                        for (var i = 0; i < myData.DormHalls.length; i++) {
+                            let name = myData.DormHalls[i].name;
+                            let url = myData.DormHalls[i].image;
+                            // let desc = myData.DormHalls[i].desc;
                             // let url = myMovies.movies[i].url;
                             let div = document.createElement("div");
                             div.innerHTML = `
@@ -355,7 +355,7 @@
                                         <h2 class="featurette-heading fw-normal lh-1"
                                             style="text-align: center; margin-bottom: 2rem;">${name}
                                         </h2>
-                                        <p class="lead">${desc}</p>
+                                        <p class="lead"></p>
                                     </div>
                                     <div class="col-md-5 order-md-1">
                                         <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"

@@ -4,7 +4,7 @@ fetch("./data.json")
 
 function loadLocations(myData) {
   var mainContainer = document.getElementById("CafeLocs");
-  for (var i = 0; i < myData.GetGo.length; i++) {
+  for (var i = 0; i < myData.Cafes.length; i++) {
     let name = myData.Cafes[i].name;
     let url = myData.Cafes[i].image;
     let desc = myData.Cafes[i].desc;
