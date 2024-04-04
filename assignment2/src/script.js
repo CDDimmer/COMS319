@@ -9,36 +9,61 @@ const App = () => {
 
   // Format is based on bootstrap example found here: https://bbbootstrap.com/snippets/bootstrap-ecommerce-product-list-nav-tabs-86727014
   function BrowseView() {
-    const listItems = items.map((el) => (
-      <div class="col-md-4" id={el.id}>
-        <div class="card">
-          <img
-            src={el.image}
-            class="card-img-top"
-            alt=""
-            height="382"
-            width="286"
-          />
-          <div class="card-body">
-            <div class="d-flex justify-content-between">
-              <span class="font-weight-bold">{el.title}</span>
-              <span class="font-weight-bold">${el.price}</span>
-            </div>
-            <p class="card-text mb-1 mt-1">{el.description}</p>
-          </div>
-          <hr />
-          <div class="card-body">
-            <div class="text-right buttons">
-              <button class="btn btn-dark">Add to cart</button>
-            </div>
+    const [ProductsCategory, setProductsCategory] = useState(items);
+    const [query, setQuery] = useState("");
+
+    const render_products = (ProductsCategory) => {
+      return (
+        <div class="container-fluid mt-2 mb-5">
+          <div class="row g-3">
+            {ProductsCategory.map((el) => (
+              <div class="col-md-4" id={el.id}>
+                <div class="card">
+                  <img
+                    src={el.image}
+                    class="card-img-top"
+                    alt=""
+                    height="382"
+                    width="286"
+                  />
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                      <span class="font-weight-bold">{el.title}</span>
+                      <span class="font-weight-bold">${el.price}</span>
+                    </div>
+                    <p class="card-text mb-1 mt-1">{el.description}</p>
+                  </div>
+                  <hr />
+                  <div class="card-body">
+                    <div class="text-right buttons">
+                      <button class="btn btn-dark">Add to cart</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
-      </div>
-    ));
+      );
+    };
+
+    const handleChange = (e) => {
+      setQuery(e.target.value);
+      const results = items.filter((eachProduct) => {
+        if (e.target.value === "") return ProductsCategory;
+        return eachProduct.title
+          .toLowerCase()
+          .includes(e.target.value.toLowerCase());
+      });
+      setProductsCategory(results);
+    };
 
     return (
-      <div class="container-fluid mt-2 mb-5">
-        <div class="row g-3">{listItems}</div>
+      <div>
+        <div>
+        <input type="search" value={query} onChange={handleChange} />
+		</div>
+        {render_products(ProductsCategory)}
       </div>
     );
   }
