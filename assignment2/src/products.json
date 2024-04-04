@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "title": "iPhone 9",
+    "price": 549,
+    "description": "An apple mobile which is nothing like apple",
+    "category": "smartphones",
+    "brand": "Apple",
+    "image": "https://cdn.dummyjson.com/product-images/1/4.jpg",
+    "rating": { "rate": 4.69, "stock": 94 }
+  },
+  {
+    "id": 2,
+    "title": "iPhone X",
+    "price": 899,
+    "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+    "category": "smartphones",
+    "brand": "Apple",
+    "image": "https://cdn.dummyjson.com/product-images/2/3.jpg",
+    "rating": { "rate": 4.44, "stock": 34 }
+  },
+  {
+    "id": 3,
+    "title": "Samsung Universe 9",
+    "price": 1249,
+    "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
+    "category": "smartphones",
+    "brand": "Samsung",
+    "image": "https://cdn.dummyjson.com/product-images/3/1.jpg",
+    "rating": { "rate": 4.09, "stock": 36 }
+  },
+  {
+    "id": 4,
+    "title": "OPPOF19",
+    "price": 280,
+    "description": "OPPO F19 is officially announced on April 2021.",
+    "category": "smartphones",
+    "brand": "OPPO",
+    "image": "https://cdn.dummyjson.com/product-images/4/thumbnail.jpg",
+    "rating": { "rate": 4.3, "stock": 123 }
+  },
+  {
+    "id": 5,
+    "title": "Huawei P30",
+    "price": 499,
+    "description": "Huawei’s re-badged P30 Pro New Edition was officially unveiled yesterday in Germany and now the device has made its way to the UK.",
+    "category": "smartphones",
+    "brand": "Huawei",
+    "image": "https://cdn.dummyjson.com/product-images/5/1.jpg",
+    "rating": { "rate": 4.09, "stock": 32 }
+  },
+  {
+    "id": 6,
+    "title": "MacBook Pro",
+    "price": 1749,
+    "description": "MacBook Pro 2021 with mini-LED display may launch between September, November",
+    "category": "laptops",
+    "brand": "Apple",
+    "image": "https://cdn.dummyjson.com/product-images/6/1.png",
+    "rating": { "rate": 4.57, "stock": 83 }
+  },
+  {
+    "id": 7,
+    "title": "Samsung Galaxy Book",
+    "price": 1499,
+    "description": "Samsung Galaxy Book S (2020) Laptop With Intel Lakefield Chip, 8GB of RAM Launched",
+    "category": "laptops",
+    "brand": "Samsung",
+    "image": "https://cdn.dummyjson.com/product-images/7/2.jpg",
+    "rating": { "rate": 4.25, "stock": 50 }
+  },
+  {
+    "id": 8,
+    "title": "Microsoft Surface Laptop 4",
+    "price": 1499,
+    "description": "Style and speed. Stand out on HD video calls backed by Studio Mics. Capture ideas on the vibrant touchscreen.",
+    "category": "laptops",
+    "brand": "Microsoft Surface",
+    "image": "https://cdn.dummyjson.com/product-images/8/2.jpg",
+    "rating": { "rate": 4.43, "stock": 68 }
+  },
+  {
+    "id": 9,
+    "title": "Infinix INBOOK",
+    "price": 1099,
+    "description": "Infinix Inbook X1 Ci3 10th 8GB 256GB 14 Win10 Grey - 1 Year Warranty",
+    "category": "laptops",
+    "brand": "Infinix",
+    "image": "https://cdn.dummyjson.com/product-images/9/2.png",
+    "rating": { "rate": 4.54, "stock": 96 }
+  },
+  {
+    "id": 10,
+    "title": "HP Pavilion 15-DK1056WM",
+    "price": 1099,
+    "description": "HP Pavilion 15-DK1056WM Gaming Laptop 10th Gen Core i5, 8GB, 256GB SSD, GTX 1650 4GB, Windows 10",
+    "category": "laptops",
+    "brand": "HP Pavilion",
+    "image": "https://cdn.dummyjson.com/product-images/10/1.jpg",
+    "rating": { "rate": 4.43, "stock": 89 }
+  },
+  {
+    "id": 11,
+    "title": "perfume Oil",
+    "price": 13,
+    "description": "Mega Discount, Impression of Acqua Di Gio by GiorgioArmani concentrated attar perfume Oil",
+    "category": "fragrances",
+    "brand": "Impression of Acqua Di Gio",
+    "image": "https://cdn.dummyjson.com/product-images/11/3.jpg",
+    "rating": { "rate": 4.26, "stock": 65 }
+  },
+  {
+    "id": 12,
+    "title": "Brown Perfume",
+    "price": 40,
+    "description": "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
+    "category": "fragrances",
+    "brand": "Royal_Mirage",
+    "image": "https://cdn.dummyjson.com/product-images/12/3.png",
+    "rating": { "rate": 4, "stock": 52 }
+  }
+]
