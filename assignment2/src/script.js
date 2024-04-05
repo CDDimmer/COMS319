@@ -14,29 +14,29 @@ const App = () => {
 
     const render_products = (ProductsCategory) => {
       return (
-        <div class="container-fluid mt-2 mb-5">
+        <div className="container-fluid mt-2 mb-5">
           <div class="row g-3">
             {ProductsCategory.map((el) => (
-              <div class="col-md-4" id={el.id}>
-                <div class="card">
+              <div className="col-md-4" id={el.id}>
+                <div className="card">
                   <img
                     src={el.image}
-                    class="card-img-top"
+                    className="card-img-top"
                     alt=""
                     height="382"
                     width="286"
                   />
-                  <div class="card-body">
-                    <div class="d-flex justify-content-between">
-                      <span class="font-weight-bold">{el.title}</span>
-                      <span class="font-weight-bold">${el.price}</span>
+                  <div className="card-body">
+                    <div className="d-flex justify-content-between">
+                      <span className="font-weight-bold">{el.title}</span>
+                      <span className="font-weight-bold">${el.price}</span>
                     </div>
-                    <p class="card-text mb-1 mt-1">{el.description}</p>
+                    <p className="card-text mb-1 mt-1">{el.description}</p>
                   </div>
                   <hr />
-                  <div class="card-body">
-                    <div class="text-right buttons">
-                      <button class="btn btn-dark">Add to cart</button>
+                  <div className="card-body">
+                    <div className="text-right buttons">
+                      <button className="btn btn-dark">Add to cart</button>
                     </div>
                   </div>
                 </div>
@@ -48,22 +48,45 @@ const App = () => {
     };
 
     const handleChange = (e) => {
-      setQuery(e.target.value);
       const results = items.filter((eachProduct) => {
-        if (e.target.value === "") return ProductsCategory;
+        if (query === "") return ProductsCategory;
         return eachProduct.title
           .toLowerCase()
-          .includes(e.target.value.toLowerCase());
+          .includes(query.toLowerCase());
       });
       setProductsCategory(results);
     };
 
+    const render_header = () => {
+      const handleInputChange = (event) => {
+        setQuery(event.target.value);
+      };
+
+      const updateHooks = () => {
+        setViewer(1);
+      };
+
+      return (
+        <header>
+          <nav className="navbar navbar-expand-md fixed-top bg-light">
+            <div className="container-fluid">
+              <div className="d-flex me-auto">
+                <input className="form-control me-2" type="search" placeholder="Search" value={query} onChange={handleInputChange} />
+                <button className="btn btn-outline-success" type="search" onClick={handleChange}>Search</button>
+              </div>
+              <button className="btn btn-outline-success" type="button" onClick={updateHooks}>Cart</button>
+            </div>
+          </nav>
+        </header>
+      );
+    }
+
     return (
       <div>
-        <div>
-        <input type="search" value={query} onChange={handleChange} />
-		</div>
-        {render_products(ProductsCategory)}
+        {render_header()}
+        <div style={{paddingTop: 4 + 'rem'}}>
+          {render_products(ProductsCategory)}
+        </div>
       </div>
     );
   }
@@ -116,10 +139,10 @@ const App = () => {
         {viewer === 1 && <CartView />}
         {viewer === 2 && <ConfirmationView />}
       </div>
-      <div class="container">
-        <footer class="py-3 my-4">
+      <div className="container">
+        <footer className="py-3 my-4">
           <hr />
-          <p class="text-center text-body-secondary">
+          <p className="text-center text-body-secondary">
             © 2024 Com S 319 - Iowa State University
             <br />
             Coleman Dimmer - Jake Egler
