@@ -6,16 +6,26 @@ import items from "./products.json";
 
 const App = () => {
   const [viewer, setViewer] = useState(0);
+  const [cart, setCart] = useState([]);
+  const [cartTotal, setCartTotal] = useState(0);
 
   // Format is based on bootstrap example found here: https://bbbootstrap.com/snippets/bootstrap-ecommerce-product-list-nav-tabs-86727014
   function BrowseView() {
     const [ProductsCategory, setProductsCategory] = useState(items);
     const [query, setQuery] = useState("");
 
+    const TestPlus = () => {
+      console.log("Plus - I have been clicked")
+    }
+
+    const TestMinus = () => {
+      console.log("Minus - I have been clicked")
+    }
+
     const render_products = (ProductsCategory) => {
       return (
         <div className="container-fluid mt-2 mb-5">
-          <div class="row g-3">
+          <div className="row g-3">
             {ProductsCategory.map((el) => (
               <div className="col-md-4" id={el.id}>
                 <div className="card">
@@ -35,7 +45,12 @@ const App = () => {
                   </div>
                   <hr />
                   <div className="card-body">
-                    <div className="text-right buttons">
+                    <div className="buttons" style={{display: "flex", justifyContent: "space-between",margin: 0 + 'auto'}}>
+                      <div className="btn btn-dark d-flex" style={{cursor: 'default'}}>
+                        <div className="btn btn-outline-success" onClick={TestPlus}>+</div>
+                        <div style={{display: "inline-block", padding: '.5em 0.75em'}}>0</div>
+                        <div className="btn btn-outline-danger" style={{paddingLeft: 14.27 + 'px', paddingRight: 14.28 + 'px'}} onClick={TestMinus}>-</div>
+                      </div>
                       <button className="btn btn-dark">Add to cart</button>
                     </div>
                   </div>
@@ -72,9 +87,9 @@ const App = () => {
             <div className="container-fluid">
               <div className="d-flex me-auto">
                 <input className="form-control me-2" type="search" placeholder="Search" value={query} onChange={handleInputChange} />
-                <button className="btn btn-outline-success" type="search" onClick={handleChange}>Search</button>
+                <button className="btn btn-outline-dark" type="search" onClick={handleChange}>Search</button>
               </div>
-              <button className="btn btn-outline-success" type="button" onClick={updateHooks}>Cart</button>
+              <button className="btn btn-outline-dark" type="button" onClick={updateHooks} style={{paddingLeft: 1.5 + 'em', paddingRight: 1.5 + 'em'}}>Cart</button>
             </div>
           </nav>
         </header>
@@ -100,14 +115,18 @@ const App = () => {
       setViewer(2);
     }
 
-    /*
-        Notes:
-        Can't have setViewer() directly in onclick, will make it consistantly change screens.
-    */
+    const IsCartEmpty = () => {
+      if(cart.length === 0) {
+        return (
+          <div>We're empty</div>
+        )
+      }
+    };
 
     return (
       <div>
         This is cart view
+        {IsCartEmpty()}
         <button onClick={changeView}>Go to browse</button>
         <button onClick={changeView2}>Go to confirmation</button>
       </div>
