@@ -7,27 +7,40 @@ import items from "./products.json";
 const App = () => {
   const [viewer, setViewer] = useState(0);
   const [cart, setCart] = useState([]);
-  const [cartTotal, setCartTotal] = useState(0);
+  // const [cartTotal, setCartTotal] = useState(0);
+
+  const [ProductsCategory, setProductsCategory] = useState(items);
+  const [query, setQuery] = useState("");
+
+  function howManyofThis(id) {
+    let hmot = cart.filter((cartItem) => cartItem.id === id);
+    return hmot.length;
+  }
+
+  const removeFromCart = (el) => {
+    let hardCopy = [...cart];
+    let curNum = howManyofThis(el.id)
+    hardCopy = hardCopy.filter((cartItem) => cartItem.id !== el.id);
+    for(let i = 0; i < curNum-1; i++) {
+      hardCopy = [...hardCopy, el]
+    }
+    setCart(hardCopy);
+  };
+
+  const addToCart = (el) => {
+    setCart([...cart, el]);
+  };
 
   // Format is based on bootstrap example found here: https://bbbootstrap.com/snippets/bootstrap-ecommerce-product-list-nav-tabs-86727014
   function BrowseView() {
-    const [ProductsCategory, setProductsCategory] = useState(items);
-    const [query, setQuery] = useState("");
 
-    const TestPlus = () => {
-      console.log("Plus - I have been clicked")
-    }
-
-    const TestMinus = () => {
-      console.log("Minus - I have been clicked")
-    }
-
-    const render_products = (ProductsCategory) => {
+    const Render_Products = (ProductsCategory) => {
+      
       return (
         <div className="container-fluid mt-2 mb-5">
           <div className="row g-3">
             {ProductsCategory.map((el) => (
-              <div className="col-md-4" id={el.id}>
+              <div className="col-md-4" key={el.id}>
                 <div className="card">
                   <img
                     src={el.image}
@@ -45,13 +58,12 @@ const App = () => {
                   </div>
                   <hr />
                   <div className="card-body">
-                    <div className="buttons" style={{display: "flex", justifyContent: "space-between",margin: 0 + 'auto'}}>
+                    <div className="buttons" style={{display: "flex", justifyContent: "center",margin: 0 + 'auto'}}>
                       <div className="btn btn-dark d-flex" style={{cursor: 'default'}}>
-                        <div className="btn btn-outline-success" onClick={TestPlus}>+</div>
-                        <div style={{display: "inline-block", padding: '.5em 0.75em'}}>0</div>
-                        <div className="btn btn-outline-danger" style={{paddingLeft: 14.27 + 'px', paddingRight: 14.28 + 'px'}} onClick={TestMinus}>-</div>
+                        <button className="btn btn-outline-success" onClick={() => addToCart(el)}>+</button>
+                        <div style={{display: "inline-block", padding: '.5em 3em'}}>{howManyofThis(el.id)}</div>
+                        <div className="btn btn-outline-danger" style={{paddingLeft: 14.27 + 'px', paddingRight: 14.28 + 'px'}} onClick={() => removeFromCart(el)}>-</div>
                       </div>
-                      <button className="btn btn-dark">Add to cart</button>
                     </div>
                   </div>
                 </div>
@@ -100,7 +112,7 @@ const App = () => {
       <div>
         {render_header()}
         <div style={{paddingTop: 4 + 'rem'}}>
-          {render_products(ProductsCategory)}
+          {Render_Products(ProductsCategory)}
         </div>
       </div>
     );
