@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.css";
-// import { useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 // The json file is a shorter, edited version of the product.json from dummyjson.com, which can be found from this page: https://dummyjson.com/docs/products
 import items from "./products.json";
 
@@ -160,25 +160,72 @@ const App = () => {
     };
 
     const UniqueItemsInCart = () => {
-      const results = items.filter((itm) => {
-        if (howManyofThis(itm.id) > 0) return itm.id;
-      });
+      let results = items;
+      results = results.filter((itm) => howManyofThis(itm.id) > 0);
       return results;
     };
 
     const CartNotEmpty = () => {
       return (
         <div>
-          We have items:
+          <div class="col-sm-12 empty-cart-cls text-center">
+          <h3><strong>Ready to checkout?</strong></h3>
+          </div>
+        <div className="container">
+          <div class="row border-bottom">
+            <div class="row main align-items-center">
+              <div class="col"></div>
+              <div class="col">
+                Item:
+              </div>
+              <div class="col">
+                Price:
+              </div>
+              <div class="col">
+                Quantity:
+              </div>
+              <div class="col">
+                Price:
+              </div>
+              </div>
+            </div>
           {
             UniqueItemsInCart().map((el) => (
-              <div key={el.id}>
-                <img class="img-fluid" src={el.image} width={150} />
-                {el.title} {howManyofThis(el.id)} ${el.price} {howManyofThis(el.id) * el.price}
+              <div class="row border-top border-bottom" key={el.id}>
+                <div class="row main align-items-center">
+                  <div class="col">
+                    <img class="img-fluid" width={150} src={el.image} alt=""/>
+                  </div>
+                  <div class="col">
+                    <div class="row text-muted">{el.title}</div>
+                    <div class="row">{el.category}</div>
+                  </div>
+                  <div class="col">
+                    ${el.price}
+                    {howManyofThis(el.id)}
+                  </div>
+                  <div class="col">
+                  <span class="close">&#10005;</span> {howManyofThis(el.id)}
+                  </div>
+                  <div class="col">
+                    ${howManyofThis(el.id) * el.price}
+                  </div>
+                </div>
               </div>
             ))
           }
-          { cartTotal }
+          <div class="row border-top border-bottom">
+          <div class="row main align-items-center">
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col">Total:</div>
+            <div class="col">
+              ${cartTotal}
+            </div>
+            </div>
+          </div>
+        </div>
         </div>
       )
     };
