@@ -7,10 +7,21 @@ import items from "./products.json";
 const App = () => {
   const [viewer, setViewer] = useState(0);
   const [cart, setCart] = useState([]);
-  // const [cartTotal, setCartTotal] = useState(0);
-
+  const [cartTotal, setCartTotal] = useState(0);
   const [ProductsCategory, setProductsCategory] = useState(items);
   const [query, setQuery] = useState("");
+
+  useEffect(() => {
+    total();
+  }, [cart]);
+
+  const total = () => {
+    let totalVal = 0;
+    for (let i = 0; i < cart.length; i++) {
+      totalVal += cart[i].price;
+    }
+    setCartTotal(totalVal);
+  };
 
   function howManyofThis(id) {
     let hmot = cart.filter((cartItem) => cartItem.id === id);
@@ -24,6 +35,12 @@ const App = () => {
     for(let i = 0; i < curNum-1; i++) {
       hardCopy = [...hardCopy, el]
     }
+    setCart(hardCopy);
+  };
+
+  const removeFromCartCompletely = (el) => {
+    let hardCopy = [...cart];
+    hardCopy = hardCopy.filter((cartItem) => cartItem.id !== el.id);
     setCart(hardCopy);
   };
 
@@ -119,28 +136,82 @@ const App = () => {
   }
 
   function CartView() {
-    function changeView() {
+    function changeViewPrevious() {
       setViewer(0);
     }
 
-    function changeView2() {
+    function changeViewOnwards() {
       setViewer(2);
     }
 
-    const IsCartEmpty = () => {
+    const CartIsEmpty = () => {
+        // Got from here: https://bbbootstrap.com/snippets/bootstrap-empty-cart-template-25715727
+        return (
+          <div>
+						<div class="card-body cart">
+								<div class="col-sm-12 empty-cart-cls text-center">
+									<img src="https://i.imgur.com/dCdflKN.png" width="130" height="130" class="img-fluid mb-4 mr-3" alt=""/>
+									<h3><strong>Your Cart is Empty</strong></h3>
+									<h4>You can't continue the checkout process.<br/>Hit the button <strong>above</strong> to continue Shopping.</h4>
+								</div>
+						</div>
+            </div>
+        )
+    };
+
+    const UniqueItemsInCart = () => {
+      const results = items.filter((itm) => {
+        if (howManyofThis(itm.id) > 0) return itm.id;
+      });
+      return results;
+    };
+
+    const CartNotEmpty = () => {
+      return (
+        <div>
+          We have items:
+          {
+            UniqueItemsInCart().map((el) => (
+              <div key={el.id}>
+                <img class="img-fluid" src={el.image} width={150} />
+                {el.title} {howManyofThis(el.id)} ${el.price} {howManyofThis(el.id) * el.price}
+              </div>
+            ))
+          }
+          { cartTotal }
+        </div>
+      )
+    };
+
+
+    const DynamicView = () => {
+      
       if(cart.length === 0) {
         return (
-          <div>We're empty</div>
-        )
+          CartIsEmpty()
+        );
+      } else {
+        // TODO: Add form for info.
+        return (
+          CartNotEmpty()
+        );
       }
-    };
+    }
 
     return (
       <div>
-        This is cart view
-        {IsCartEmpty()}
-        <button onClick={changeView}>Go to browse</button>
-        <button onClick={changeView2}>Go to confirmation</button>
+        <header>
+          <nav className="navbar navbar-expand-md fixed-top bg-light">
+            <div className="container-fluid">
+              <div className="d-flex me-auto">
+                <button className="btn btn-outline-dark" type="button" onClick={changeViewPrevious} style={{paddingLeft: 1.5 + 'em', paddingRight: 1.5 + 'em'}}>&#8656; Return</button>
+              </div>
+            </div>
+          </nav>
+        </header>
+        <div style={{paddingTop: 4 + 'rem'}}>
+          { DynamicView() }
+        </div>
       </div>
     );
   }
