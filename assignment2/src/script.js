@@ -257,67 +257,113 @@ const App = () => {
                   <div className="form-group">
                     <label>Card</label>
                     <div class="d-flex jusify-content-start align-items-center rounded p-2">
-                      <input maxLength={16}
-                        {...register("card", { required: {value: true, message: <p className="text-danger">Card Required.</p>}, pattern: {
-                          value: /[0-9]{16}/, message: <p className="text-danger">Invalid Card Number.</p>
-                        } })}
+                      <input
+                        maxLength={16}
+                        {...register("card", {
+                          required: {
+                            value: true,
+                            message: (
+                              <p className="text-danger">Card Required.</p>
+                            ),
+                          },
+                          pattern: {
+                            value: /[0-9]{16}/,
+                            message: (
+                              <p className="text-danger">
+                                Invalid Card Number.
+                              </p>
+                            ),
+                          },
+                        })}
                         placeholder="XXXX-XXXX-XXXX-XXXX"
                       />
-                      {errors.card && (
-                        errors.card.message
-                      )}
+                      {errors.card && errors.card.message}
                     </div>
                   </div>
                   <div className="form-group">
                     <label>Address</label>
                     <div class="d-flex jusify-content-start align-items-center rounded p-2">
                       <input
-                        {...register("address", { required: {value: true, message: <p className="text-danger">Address is required.</p>} })}
+                        {...register("address", {
+                          required: {
+                            value: true,
+                            message: (
+                              <p className="text-danger">
+                                Address is required.
+                              </p>
+                            ),
+                          },
+                        })}
                         placeholder="Address"
                       />
-                      {errors.address && (
-                        errors.address.message
-                      )}
+                      {errors.address && errors.address.message}
                     </div>
                   </div>
                   <div className="form-group">
                     <label>City</label>
                     <div class="d-flex jusify-content-start align-items-center rounded p-2">
                       <input
-                        {...register("city", { required: {value: true, message: <p className="text-danger">City is required.</p>} })}
+                        {...register("city", {
+                          required: {
+                            value: true,
+                            message: (
+                              <p className="text-danger">City is required.</p>
+                            ),
+                          },
+                        })}
                         placeholder="City"
                       />
-                      {errors.city && (
-                        errors.city.message
-                      )}
+                      {errors.city && errors.city.message}
                     </div>
                   </div>
                   <div className="form-group">
                     <label>State</label>
                     <div class="d-flex jusify-content-start align-items-center rounded p-2">
-                      <input maxLength={2}
-                        {...register("state", { required: {value: true, message: <p className="text-danger">State is required.</p>}, pattern: {
-                          value: /[A-Z]{2}/, message: <p className="text-danger">Invalid State.</p>
-                        } })}
+                      <input
+                        maxLength={2}
+                        {...register("state", {
+                          required: {
+                            value: true,
+                            message: (
+                              <p className="text-danger">State is required.</p>
+                            ),
+                          },
+                          pattern: {
+                            value: /[A-Z]{2}/,
+                            message: (
+                              <p className="text-danger">Invalid State.</p>
+                            ),
+                          },
+                        })}
                         placeholder="State"
                       />
-                      {errors.state && (
-                        errors.state.message
-                      )}
+                      {errors.state && errors.state.message}
                     </div>
                   </div>
                   <div className="form-group">
                     <label>ZIP Code</label>
                     <div class="d-flex jusify-content-start align-items-center rounded p-2">
-                      <input maxLength={5}
-                        {...register("zip", { required: {value: true, message: <p className="text-danger">Zip Code is required.</p>}, pattern: {
-                          value: /[0-9]{5}/, message: <p className="text-danger">Invalid Zip Code.</p>
-                        } })}
+                      <input
+                        maxLength={5}
+                        {...register("zip", {
+                          required: {
+                            value: true,
+                            message: (
+                              <p className="text-danger">
+                                Zip Code is required.
+                              </p>
+                            ),
+                          },
+                          pattern: {
+                            value: /[0-9]{5}/,
+                            message: (
+                              <p className="text-danger">Invalid Zip Code.</p>
+                            ),
+                          },
+                        })}
                         placeholder="ZIP Code"
                       />
-                      {errors.zip && (
-                        errors.zip.message
-                      )}
+                      {errors.zip && errors.zip.message}
                     </div>
                   </div>
                   <button type="submit" className="btn btn-primary">
@@ -427,19 +473,48 @@ const App = () => {
       setViewer(0);
     }
 
+    // Design from here: https://bbbootstrap.com/snippets/bootstrap-order-status-information-card-14398117
     return (
       <div>
-        <h1>Order Summary:</h1>
-        <h3>{dataF.name}</h3>
-        <p>Order#: {Math.random().toString(16).substring(2)}</p>
-        <p>{dataF.email}</p>
-        <p>{dataF.address}</p>
-        <p>
-          {dataF.city}, {dataF.state} {dataF.zip}
-        </p>
-        <button onClick={changeView}>
-          Shop Again
-        </button>
+        <div class="container mt-5 d-flex justify-content-center">
+          <div class="card p-4 mt-3">
+            <div class="first d-flex justify-content-between align-items-center mb-3">
+              <div class="info">
+                <span class="d-block name">Thank you, {dataF.name}</span>
+                <span class="order">
+                  Order - {Math.random().toString(16).substring(2)}
+                </span>
+              </div>
+
+              <img src="https://i.imgur.com/NiAVkEw.png" width="40" />
+            </div>
+            <div class="detail">
+              <span class="d-block summery">
+                Your order has been dispatched. we are delivering you order.
+              </span>
+            </div>
+            <hr />
+            <div class="text">
+              <span class="d-block new mb-1">{dataF.name}</span>
+            </div>
+            <span class="d-block address mb-3">
+              {dataF.address}
+              <br />
+              {dataF.city} {dataF.state}, {dataF.zip}
+            </span>
+          </div>
+        </div>
+        <div class="container mt-4">
+          <div class="text-center">
+            <button
+              className="btn btn-outline-dark"
+              type="search"
+              onClick={changeView}
+            >
+              Shop Again!
+            </button>
+          </div>
+        </div>
       </div>
     );
   }
