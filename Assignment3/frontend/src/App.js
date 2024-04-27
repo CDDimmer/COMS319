@@ -435,17 +435,6 @@ function App() {
                 ]);
 
                 useEffect(() => {
-                        fetch("http://127.0.0.1:8081/catalog")
-                                .then((response) => response.json())
-                                .then((data) => {
-                                        setProducts(data);
-                                        console.log(
-                                                "Load initial Catalog of Products in GET :",
-                                                data
-                                        );
-                                });
-                }, []);
-                useEffect(() => {
                         fetch("http://127.0.0.1:8081/listProducts")
                                 .then((response) => response.json())
                                 .then((data) => {
@@ -519,9 +508,6 @@ function App() {
                 return <div>Update View</div>;
         }
 
-        function DeleteView() {
-                return <div>Delete View</div>;
-        }
         function DeleteView() {
                 const [index, setIndex] = useState(0);
                 const [products, setProducts] = useState([
