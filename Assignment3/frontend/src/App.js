@@ -42,7 +42,13 @@ function App() {
   }
 
   function StudentView() {
-    return <div>Student View</div>;
+    return (
+      <div>
+        <div>Class</div>
+        <div>Students</div>
+        <div>About</div>
+      </div>
+    );
   }
 
   function CreateView() {
@@ -111,8 +117,8 @@ function App() {
     return <div>Delete View</div>;
   }
 
-  return (
-    <div class="container">
+  function createHeader() {
+    return (
       <header class="d-flex justify-content-center py-3">
         <ul class="nav nav-pills">
           <li class="nav-item">
@@ -146,11 +152,30 @@ function App() {
           </li>
         </ul>
       </header>
-      {viewer === 1 && <StudentView />}
-      {viewer === 2 && <CreateView />}
-      {viewer === 3 && <ReadView />}
-      {viewer === 4 && <UpdateView />}
-      {viewer === 5 && <DeleteView />}
+    );
+  }
+
+  function createFooter() {
+    return (
+      <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+        <p class="col-md-4 mb-0 text-body-secondary">
+          © 2024 Com S 319 - Iowa State University<br></br>Coleman Dimmer - Jake Egler
+        </p>
+      </footer>
+    );
+  }
+
+  return (
+    <div>
+      {createHeader()}
+      <div class="container">
+        {viewer === 1 && <StudentView />}
+        {viewer === 2 && <CreateView />}
+        {viewer === 3 && <ReadView />}
+        {viewer === 4 && <UpdateView />}
+        {viewer === 5 && <DeleteView />}
+        {createFooter()}
+      </div>
     </div>
   );
 }
