@@ -42,10 +42,74 @@ function App() {
   }
 
   function StudentView() {
+    const teacherImageJannesari =
+      "https://www.cs.iastate.edu/files/styles/people_thumb/public/people/profilepictures/ali_janessari1.jpg?itok=L9OV3HlA";
+    const teacherImageAldaco =
+      "https://www.cs.iastate.edu/files/styles/people_thumb/public/people/profilepictures/1517665937421.jpg?itok=15jJS_fr";
+
     return (
       <div>
         <div>Class</div>
+        <div class="p-5 mb-4 bg-body-tertiary rounded-3">
+          <div class="container-fluid py-5">
+            <h1 class="display-5 fw-bold">Com S 319</h1>
+            <p class="fs-4">
+              Com S 319 is a class at Iowa State Uiversity that teaches about
+              website based programming. The professor for Com S 319 is Ali
+              Jannesari and the course is organized by Professor Abraham Aldaco.
+            </p>
+          </div>
+        </div>
+        <h3>SE/COMS 319</h3>
+        <h4>Professors - Ali Jannesari & Abraham Aldaco</h4>
+        <div class="row align-items-md-stretch border bg-body-secondary rounded-3">
+          <div class="col-md-6">
+            <div class="h-100 p-5">
+              <h2 class="text-center">Ali Jannesari
+                <br></br>
+                <img
+                  class="col-md-5 rounded"
+                  src={teacherImageJannesari}
+                  alt="Ali Jannesari - A professor at Iowa State University"
+                ></img>
+              </h2>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="h-100 p-5 rounded-3">
+            <h2 class="text-center">Abraham Aldaco
+                <br></br>
+                <img
+                  class="col-md-5 rounded"
+                  src={teacherImageAldaco}
+                  alt="Abraham Aldaco - A professor at Iowa State University"
+                ></img>
+              </h2>
+            </div>
+          </div>
+        </div>
         <div>Students</div>
+        <div class="row align-items-md-stretch">
+          <div class="col-md-6">
+            <div class="h-100 p-5 bg-body-secondary border rounded-3">
+              <h2 class="text-center">
+                Coleman Dimmer<br></br>
+                <img
+                  class="col-md-5 rounded"
+                  src="https://seniord.cs.iastate.edu/2023-Dec-07/files/inline-images/Dimmer%20Coleman%20%20%283%29.jpg"
+                  alt="Image of user described"
+                ></img>
+              </h2>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="h-100 p-5 bg-body-secondary border rounded-3">
+              <h2 class="text-center">
+                Jake Egler<br></br>
+              </h2>
+            </div>
+          </div>
+        </div>
         <div>About</div>
       </div>
     );
@@ -159,7 +223,8 @@ function App() {
     return (
       <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
         <p class="col-md-4 mb-0 text-body-secondary">
-          © 2024 Com S 319 - Iowa State University<br></br>Coleman Dimmer - Jake Egler
+          © 2024 Com S 319 - Iowa State University<br></br>Coleman Dimmer - Jake
+          Egler
         </p>
       </footer>
     );
