@@ -381,10 +381,17 @@ function App() {
         });
     };
 
+    function confirmDeletion() {
+      let text = "Are you sure you want to delete this product?\nPress OK to continue.";
+      if (window.confirm(text) === true) {
+        deleteOneProduct(products[index].id);
+      }
+    }
+
     return (
       <div className="container">
         {/* Buttons to simulate carousel */}
-        <h3 class="text-center">Delete a product:</h3>
+        <h3 class="text-center">Select a product to delete:</h3>
         <div class="row">
           <button class="btn col-1" onClick={() => getOneByOneProductPrev()}>
             <svg
@@ -428,10 +435,10 @@ function App() {
           </button>
         </div>
         <div class="row">
-          <div class="col-4"></div>
+          <div class="col"></div>
           <button
-            class="btn border col-4"
-            onClick={() => deleteOneProduct(products[index].id)}
+            class="btn border-black col-4 btn-outline-danger"
+            onClick={() => confirmDeletion()}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -457,7 +464,7 @@ function App() {
               <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" />
             </svg>
           </button>
-          <div class="col-4"></div>
+          <div class="col"></div>
         </div>
       </div>
     );
