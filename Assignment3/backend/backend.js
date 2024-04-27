@@ -45,7 +45,7 @@ app.get("/listProducts/:id", async (req, res) => {
   else res.send(results).status(200);
 });
 
-// POST - adds a new product to the 
+// POST - adds a new product to the database
 app.post("/addProduct", async (req, res) => {
   try {
     await client.connect();
@@ -72,6 +72,38 @@ app.post("/addProduct", async (req, res) => {
   }
 });
 
+//PUT - generic for updating the data with an id = id, and updates the field equal to value.
+app.put("/updateProduct/:id/:value", async (req, res) => {
+  const id = Number(req.params.id);
+  const value = String(req.params.value);
+  const query = { id: id };
+  await client.connect();
+  console.log("Product to Update :", id);
+  console.log("Product variable to Update :", value);
+  // Data for updating the document, typically comes from the request body
+  console.log(req.body);
+  const updateData = {
+    $set: req.body,
+  };
+  console.log(updateData)
+
+  // read data from robot to update to send to frontend
+  const robotUpdated = await db.collection("fakestore_catalog").findOne(query);
+
+  // Add options if needed, for example { upsert: true } to create a document if it doesn't exist
+  const options = { };
+  const results = await db
+    .collection("fakestore_catalog")
+    .updateOne(query, updateData, options);
+
+  if (results.matchedCount === 0) {
+    return res.status(404).send({ message: 'Product not found' });
+  }
+
+  res.status(200);
+  res.send(robotUpdated);
+});
+
 // DELETE - removes a unique product by id
 app.delete("/deleteProduct/:id", async (req, res) => {
   try {
@@ -80,15 +112,10 @@ app.delete("/deleteProduct/:id", async (req, res) => {
     console.log("Product to delete :", id);
     const query = { id: id };
 
-    // read data from robot to delete to send it to frontend
-    const productDeleted = await db.collection("fakestore_catalog").findOne(query);
-
-
     // delete
     const results = await db.collection("fakestore_catalog").deleteOne(query);
     res.status(200);
-    res.send(productDeleted);
-    // res.send(results);
+    res.send(results);
   } catch (error) {
     console.error("Error deleting product:", error);
     res.status(500).send({ message: "Internal Server Error" });
