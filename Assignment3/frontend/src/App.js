@@ -147,26 +147,24 @@ function App() {
 
                 return (
                         <div>
-                                <div class="p-5 mb-4 bg-secondary bg-gradient rounded-3">
+                                <div class="p-5 mb-4">
                                         <div class="container-fluid py-5">
                                                 <h1 class="display-5 fw-bold text-center">
-                                                        Com S 319
+                                                        SE/COMS 319
                                                 </h1>
-                                                <p class="fs-4">
-                                                        Com S 319 is a class at
-                                                        Iowa State Uiversity
-                                                        that teaches about
-                                                        website based
-                                                        programming. The
-                                                        professor for Com S 319
-                                                        is Ali Jannesari and the
-                                                        course is organized by
-                                                        Professor Abraham
-                                                        Aldaco.
+                                                <p class="fs-4 text-center">
+                                                        SE/COMS 319 is a class
+                                                        at Iowa State Uiversity
+                                                        that teaches
+                                                        introductory website
+                                                        programming and
+                                                        creation.
                                                 </p>
                                         </div>
-                                        <h2 class="text-center">Professors:</h2>
-                                        <div class="row align-items-md-stretch border bg-body-secondary rounded-3">
+                                        <div class="row align-items-md-stretch border bg-body-secondary rounded-3 mb-3">
+                                                <h1 class="text-center">
+                                                        Professors:
+                                                </h1>
                                                 <div class="col-md-6">
                                                         <div class="h-100 p-5">
                                                                 <h2 class="text-center">
@@ -200,39 +198,121 @@ function App() {
                                                         </div>
                                                 </div>
                                         </div>
-                                </div>
-                                <div>Students</div>
-                                <div class="row align-items-md-stretch">
-                                        <div class="col-md-6">
-                                                <div class="h-100 p-5 bg-body-secondary border rounded-3">
-                                                        <h2 class="text-center">
-                                                                Coleman Dimmer
-                                                                <br></br>
-                                                                <img
-                                                                        class="col-md-5 rounded"
-                                                                        src="https://seniord.cs.iastate.edu/2023-Dec-07/files/inline-images/Dimmer%20Coleman%20%20%283%29.jpg"
-                                                                        alt="Image of user described"
-                                                                ></img>
-                                                        </h2>
+                                        <div class="row align-items-md-stretch border bg-body-secondary rounded-3 mb-3">
+                                                <h1 class="text-center">
+                                                        Students:
+                                                </h1>
+                                                <div class="col-md-6">
+                                                        <div class="h-100 p-5">
+                                                                <h2 class="text-center">
+                                                                        Coleman
+                                                                        Dimmer
+                                                                        <br></br>
+                                                                        <img
+                                                                                class="col-md-5 rounded"
+                                                                                src={
+                                                                                        "https://seniord.cs.iastate.edu/2023-Dec-07/files/inline-images/Dimmer%20Coleman%20%20%283%29.jpg"
+                                                                                }
+                                                                                alt="Coleman Dimmer - Student at Iowa State University"
+                                                                        ></img>
+                                                                </h2>
+                                                                <p class="text-center fs-5">
+                                                                        cddimmer@iastate.edu
+                                                                </p>
+                                                                <p class="text-center fs-6">
+                                                                        I am
+                                                                        student
+                                                                        at Iowa
+                                                                        State
+                                                                        University.
+                                                                        I am
+                                                                        Computer
+                                                                        Science
+                                                                        major
+                                                                        with
+                                                                        minors
+                                                                        in cyber
+                                                                        security
+                                                                        and data
+                                                                        science.
+                                                                        I have
+                                                                        experience
+                                                                        with
+                                                                        many
+                                                                        languages,
+                                                                        including:
+                                                                        Java,
+                                                                        Python,
+                                                                        C/C++,
+                                                                        and
+                                                                        more.
+                                                                </p>
+                                                        </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                        <div class="h-100 p-5 rounded-3">
+                                                                <h2 class="text-center">
+                                                                        Jake
+                                                                        Egler
+                                                                        <br></br>
+                                                                        <img
+                                                                                class="col-md-5 rounded"
+                                                                                alt="Jake Egler - Student at Iowa State University"
+                                                                        ></img>
+                                                                </h2>
+                                                                <p class="text-center fs-5">
+                                                                        jegler@iastate.edu
+                                                                </p>
+                                                                <p class="text-center fs-6">
+                                                                        I am a
+                                                                        senior
+                                                                        computer
+                                                                        science
+                                                                        student
+                                                                        at Iowa
+                                                                        State
+                                                                        University.
+                                                                        I also
+                                                                        have
+                                                                        experience
+                                                                        with
+                                                                        Onshape
+                                                                        CAD
+                                                                        software
+                                                                        and
+                                                                        making
+                                                                        electronics.
+                                                                </p>
+                                                        </div>
                                                 </div>
                                         </div>
-                                        <div class="col-md-6">
-                                                <div class="h-100 p-5 bg-body-secondary border rounded-3">
-                                                        <h2 class="text-center">
-                                                                Jake Egler
-                                                                <br></br>
-                                                                <img
-                                                                        class="col-md-5 rounded"
-                                                                        src={
-                                                                                jake_photo
-                                                                        }
-                                                                        alt="Image of Jake Egler"
-                                                                ></img>
-                                                        </h2>
-                                                </div>
+                                        <div class="row align-items-md-stretch border bg-body-secondary rounded-3">
+                                                <h1 class="text-center">
+                                                        Date: 4/27/24<br></br>
+                                                        Project Information:{" "}
+                                                </h1>
+                                                <p class="text-center fs-3">
+                                                        This project is about
+                                                        the implementation of an
+                                                        API that is utilized by
+                                                        a website built on a
+                                                        MERN stack. MERN
+                                                        (MongoDB, Express,
+                                                        NodeJS, and React) is a
+                                                        popular website
+                                                        developement stack that
+                                                        is used by many in the
+                                                        webstie developement
+                                                        industry. MERN utilizes
+                                                        a front end based on
+                                                        React, and a back end
+                                                        handled by MongoDB and
+                                                        express, with NodeJS
+                                                        being a server form
+                                                        running both ends.
+                                                </p>
                                         </div>
                                 </div>
-                                <div>About</div>
                         </div>
                 );
         }
