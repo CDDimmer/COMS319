@@ -2,106 +2,9 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
 import { useForm } from "react-hook-form";
 import React, { useState, useEffect } from "react";
-import jake_photo from "./jake.jpg";
+import jakePhoto from "./jake.jpg";
 
 function App() {
-        /**
-        //activity 16
-
-        const [viewer1, setViewer1] = useState(false);
-        const [viewer2, setViewer2] = useState(false);
-
-        const [product, setProduct] = useState([]);
-        const [oneProduct, setOneProduct] = useState([]);
-        // new Product
-        const [addNewProduct, setAddNewProduct] = useState({
-                id: 0,
-                title: "",
-                price: 0.0,
-                description: "",
-                category: "",
-                image: "",
-                rating: 0.0,
-        });
-
-        useEffect(() => {
-                getAllProducts();
-        }, []);
-        function getAllProducts() {
-                fetch("http://127.0.0.1:4000/catalog")
-                        .then((response) => response.json())
-                        .then((data) => {
-                                console.log("Show Catalog of Products :");
-                                console.log(data);
-                                setProduct(data);
-                        });
-                setViewer1(!viewer1);
-        }
-
-        const showAllItems = product.map((el) => (
-                <div key={el.id}>
-                        <img src={el.image} width={30} alt="images" /> <br />
-                        Title: {el.title} <br />
-                        Category: {el.category} <br />
-                        Price: {el.price} <br />
-                        Rating :{el.rating} <br />
-                </div>
-        ));
-
-        function getOneProduct(id) {
-                console.log(id);
-                if (id >= 1 && id <= 20) {
-                        fetch("http://127.0.0.1:4000/catalog/" + id)
-                                .then((response) => response.json())
-                                .then((data) => {
-                                        console.log("Show one product :", id);
-                                        console.log(data);
-                                        setOneProduct(data);
-                                });
-                        if (false === viewer2) setViewer2(true);
-                } else {
-                        console.log("Wrong number of Product id.");
-                }
-        }
-
-        const showOneItem = oneProduct.map((el) => (
-                <div key={el.id}>
-                        <img src={el.image} width={30} alt="images" /> <br />
-                        Title: {el.title} <br />
-                        Category: {el.category} <br />
-                        Price: {el.price} <br />
-                        Rating: {el.rating} <br />
-                </div>
-        ));
-
-        return (
-                <>
-                        <h1>Catalog of Products</h1>
-                        <div>
-                                {" "}
-                                <h3>Show all available Products.</h3>{" "}
-                                <button onClick={() => getAllProducts()}>
-                                        Show All ...
-                                </button>
-                                {viewer1 && showAllItems}
-                        </div>
-                        <div>
-                                <h3>Show one Product by Id:</h3>
-                                <input
-                                        type="text"
-                                        id="message"
-                                        name="message"
-                                        placeholder="id"
-                                        onChange={(e) =>
-                                                getOneProduct(e.target.value)
-                                        }
-                                />
-                                {viewer2 && showOneItem}
-                        </div>
-                </>
-        );
-        */
-        //assignment 2
         const [viewer, setViewer] = useState(1);
 
         function changeViewStudents() {
@@ -257,6 +160,9 @@ function App() {
                                                                         <br></br>
                                                                         <img
                                                                                 class="col-md-5 rounded"
+                                                                                src={
+                                                                                        jakePhoto
+                                                                                }
                                                                                 alt="Jake Egler - Student at Iowa State University"
                                                                         ></img>
                                                                 </h2>
@@ -317,9 +223,203 @@ function App() {
                 );
         }
 
-        function CreateView() {
-                return <div>Create View</div>;
-        }
+        const CreateView = () => {
+                const [formData, setFormData] = useState({
+                        id: "",
+                        title: "",
+                        price: "",
+                        description: "",
+                        category: "",
+                        image: "",
+                        rating: { rate: 0, count: 0 },
+                });
+
+                const handleChange = (e) => {
+                        const { name, value } = e.target;
+                        setFormData((prevData) => ({
+                                ...prevData,
+                                [name]: value,
+                        }));
+                };
+
+                const handleSubmit = (e) => {
+                        e.preventDefault();
+                        // Here you can send the formData to your backend using the POST method
+                        console.log("Form Data:", formData);
+                        // Reset the form after submission
+                        setFormData({
+                                id: "",
+                                title: "",
+                                price: "",
+                                description: "",
+                                category: "",
+                                image: "",
+                                rating: { rate: 0, count: 0 },
+                        });
+                };
+
+                return (
+                        <div className="container">
+                                <h1>Add New Product</h1>
+                                <form onSubmit={handleSubmit}>
+                                        <div className="mb-3">
+                                                <label
+                                                        htmlFor="id"
+                                                        className="form-label"
+                                                >
+                                                        Product ID
+                                                </label>
+                                                <input
+                                                        type="number"
+                                                        className="form-control"
+                                                        id="id"
+                                                        name="id"
+                                                        value={formData.id}
+                                                        onChange={handleChange}
+                                                />
+                                        </div>
+                                        <div className="mb-3">
+                                                <label
+                                                        htmlFor="title"
+                                                        className="form-label"
+                                                >
+                                                        Title
+                                                </label>
+                                                <input
+                                                        type="text"
+                                                        className="form-control"
+                                                        id="title"
+                                                        name="title"
+                                                        required
+                                                        value={formData.title}
+                                                        onChange={handleChange}
+                                                />
+                                        </div>
+                                        <div className="mb-3">
+                                                <label
+                                                        htmlFor="price"
+                                                        className="form-label"
+                                                >
+                                                        Price
+                                                </label>
+                                                <input
+                                                        type="text"
+                                                        className="form-control"
+                                                        id="price"
+                                                        name="price"
+                                                        required
+                                                        value={formData.price}
+                                                        onChange={handleChange}
+                                                />
+                                        </div>
+                                        <div className="mb-3">
+                                                <label
+                                                        htmlFor="description"
+                                                        className="form-label"
+                                                >
+                                                        Description
+                                                </label>
+                                                <textarea
+                                                        className="form-control"
+                                                        id="description"
+                                                        name="description"
+                                                        required
+                                                        value={
+                                                                formData.description
+                                                        }
+                                                        onChange={handleChange}
+                                                ></textarea>
+                                        </div>
+                                        <div className="mb-3">
+                                                <label
+                                                        htmlFor="category"
+                                                        className="form-label"
+                                                >
+                                                        Category
+                                                </label>
+                                                <input
+                                                        type="text"
+                                                        className="form-control"
+                                                        id="category"
+                                                        name="category"
+                                                        required
+                                                        value={
+                                                                formData.category
+                                                        }
+                                                        onChange={handleChange}
+                                                />
+                                        </div>
+                                        <div className="mb-3">
+                                                <label
+                                                        htmlFor="image"
+                                                        className="form-label"
+                                                >
+                                                        Image URL
+                                                </label>
+                                                <input
+                                                        type="text"
+                                                        className="form-control"
+                                                        id="image"
+                                                        name="image"
+                                                        required
+                                                        value={formData.image}
+                                                        onChange={handleChange}
+                                                />
+                                        </div>
+                                        <div className="mb-3">
+                                                <label
+                                                        htmlFor="rate"
+                                                        className="form-label"
+                                                >
+                                                        Rating Rate
+                                                </label>
+                                                <input
+                                                        type="number"
+                                                        className="form-control"
+                                                        id="rate"
+                                                        name="rating.rate"
+                                                        required
+                                                        min="0"
+                                                        max="5"
+                                                        value={
+                                                                formData.rating
+                                                                        .rate
+                                                        }
+                                                        onChange={handleChange}
+                                                />
+                                        </div>
+                                        <div className="mb-3">
+                                                <label
+                                                        htmlFor="count"
+                                                        className="form-label"
+                                                >
+                                                        Rating Count
+                                                </label>
+                                                <input
+                                                        type="number"
+                                                        className="form-control"
+                                                        id="count"
+                                                        name="rating.count"
+                                                        required
+                                                        min="0"
+                                                        max="5"
+                                                        value={
+                                                                formData.rating
+                                                                        .count
+                                                        }
+                                                        onChange={handleChange}
+                                                />
+                                        </div>
+                                        <button
+                                                type="submit"
+                                                className="btn btn-primary"
+                                        >
+                                                Submit
+                                        </button>
+                                </form>
+                        </div>
+                );
+        };
 
         function ReadView() {
                 const [products, setProducts] = useState([
