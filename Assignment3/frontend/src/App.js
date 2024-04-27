@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import React, { useState, useEffect } from "react";
 
 function App() {
+        /**
         //activity 16
 
         const [viewer1, setViewer1] = useState(false);
@@ -98,7 +99,7 @@ function App() {
                         </div>
                 </>
         );
-
+        */
         //assignment 2
         const [viewer, setViewer] = useState(1);
 
@@ -165,7 +166,7 @@ function App() {
                 ]);
 
                 useEffect(() => {
-                        fetch("http://localhost:8081/listProducts")
+                        fetch("http://127.0.0.1:8081/catalog")
                                 .then((response) => response.json())
                                 .then((data) => {
                                         setProducts(data);
