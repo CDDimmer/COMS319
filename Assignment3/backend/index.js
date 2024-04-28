@@ -53,7 +53,6 @@ app.get("/listProducts/:id", async (req, res) => {
 app.post("/addProduct", async (req, res) => {
         try {
                 await client.connect();
-                const keys = Object.keys(req.body);
                 const values = Object.values(req.body);
 
                 const rating = {
@@ -83,6 +82,25 @@ app.post("/addProduct", async (req, res) => {
                         error: "An internal server error occurred",
                 });
         }
+});
+
+app.put("/updateProduct:id", async (req, res) => {
+        const id = Number(req.params.id);
+        const query = { id: id };
+        await client.connect();
+        console.log("Product to Update :", id);
+        // Data for updating the document, typically comes from the request body
+        console.log(req.body);
+        const values = Object.values(req.body);
+        const updateData = {
+                $set: {
+                        title: values[0],
+                        price: parseFloat(values[1]),
+                        description: values[2],
+                        category: values[3],
+                        image: values[4],
+                },
+        };
 });
 
 //PUT - updates a product's title based upon its id
@@ -124,6 +142,34 @@ app.put("/updateProduct/:id/price", async (req, res) => {
         const updateData = {
                 $set: {
                         price: req.body.price,
+                },
+        };
+
+        // Add options if needed, for example { upsert: true } to create a document if it doesn't exist
+        const options = {};
+        const results = await db
+                .collection("fakestore_catalog")
+                .updateOne(query, updateData, options);
+
+        if (results.matchedCount === 0) {
+                return res.status(404).send({ message: "Product not found" });
+        }
+
+        res.status(200);
+        res.send(results);
+});
+
+//PUT - updates a product's price based upon its id
+app.put("/updatePrice", async (req, res) => {
+        await client.connect();
+        // Data for updating the document, typically comes from the request body
+        console.log(req.body);
+        const id = parseInt(req.body.id);
+        console.log("Product to Update :", id);
+        const query = { id: id };
+        const updateData = {
+                $set: {
+                        price: parseFloat(req.body.price),
                 },
         };
 

@@ -571,9 +571,102 @@ function App() {
                 );
         }
 
-        function UpdateView() {
-                return <div>Update View</div>;
-        }
+        const UpdateView = () => {
+                const [formData, setFormData] = useState({
+                        id: 0,
+                        price: 0.0,
+                });
+
+                const handleChange = (e) => {
+                        const { name, value } = e.target;
+                        setFormData((prevData) => ({
+                                ...prevData,
+                                [name]: value,
+                        }));
+                };
+
+                const handleSubmit = async (e) => {
+                        e.preventDefault();
+                        try {
+                                const response = await fetch(
+                                        "http://localhost:8081/updatePrice",
+                                        {
+                                                method: "PUT", // Using PUT method for updating
+                                                headers: {
+                                                        "Content-Type":
+                                                                "application/json",
+                                                },
+                                                body: JSON.stringify(formData),
+                                        }
+                                );
+                                if (response.ok) {
+                                        console.log(
+                                                "Product price updated successfully!"
+                                        );
+                                } else {
+                                        console.error(
+                                                "Failed to update product price"
+                                        );
+                                }
+                        } catch (error) {
+                                console.error("Error:", error);
+                        } finally {
+                                setFormData({
+                                        id: 0,
+                                        price: 0.0,
+                                });
+                        }
+                };
+
+                return (
+                        <div className="container">
+                                <h1>Update Product Price</h1>
+                                <form onSubmit={handleSubmit}>
+                                        <div className="mb-3">
+                                                <label
+                                                        htmlFor="id"
+                                                        className="form-label"
+                                                >
+                                                        Product ID
+                                                </label>
+                                                <input
+                                                        type="number"
+                                                        className="form-control"
+                                                        id="id"
+                                                        name="id"
+                                                        required
+                                                        value={formData.id}
+                                                        onChange={handleChange}
+                                                />
+                                        </div>
+                                        <div className="mb-3">
+                                                <label
+                                                        htmlFor="price"
+                                                        className="form-label"
+                                                >
+                                                        New Price
+                                                </label>
+                                                <input
+                                                        type="number"
+                                                        step="any"
+                                                        className="form-control"
+                                                        id="price"
+                                                        name="price"
+                                                        required
+                                                        value={formData.price}
+                                                        onChange={handleChange}
+                                                />
+                                        </div>
+                                        <button
+                                                type="submit"
+                                                className="btn btn-primary"
+                                        >
+                                                Update Price
+                                        </button>
+                                </form>
+                        </div>
+                );
+        };
 
         function DeleteView() {
                 const [index, setIndex] = useState(0);
