@@ -151,6 +151,9 @@ function App() {
     );
   }
 
+  var r;
+  var c;
+
   const CreateView = () => {
     const [formData, setFormData] = useState({
       id: "",
@@ -159,7 +162,7 @@ function App() {
       description: "",
       category: "",
       image: "",
-      rating: { rate: 0, count: 0 },
+      rating: { rate: r, count: c },
     });
 
     const handleChange = (e) => {
@@ -170,20 +173,37 @@ function App() {
       }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
       e.preventDefault();
-      // Here you can send the formData to your backend using the POST method
-      console.log("Form Data:", formData);
-      // Reset the form after submission
-      setFormData({
-        id: "",
-        title: "",
-        price: "",
-        description: "",
-        category: "",
-        image: "",
-        rating: { rate: 0, count: 0 },
-      });
+      try {
+        const response = await fetch("http://localhost:8081/addProduct", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        });
+        if (response.ok) {
+          console.log("Product added successfully!");
+          // Optionally, you can redirect the user or perform any other action here
+        } else {
+          console.error("Failed to add product");
+        }
+      } catch (error) {
+        console.error("Error:", error);
+      } finally {
+        r = null;
+        c = null;
+        setFormData({
+          id: "",
+          title: "",
+          price: "",
+          description: "",
+          category: "",
+          image: "",
+          rating: { rate: r, count: c },
+        });
+      }
     };
 
     return (
@@ -199,6 +219,7 @@ function App() {
               className="form-control"
               id="id"
               name="id"
+              required
               value={formData.id}
               onChange={handleChange}
             />
@@ -284,7 +305,10 @@ function App() {
               required
               min="0"
               max="5"
-              value={formData.rating.rate}
+              value={
+                //formData.rating.rate
+                r
+              }
               onChange={handleChange}
             />
           </div>
@@ -299,8 +323,10 @@ function App() {
               name="rating.count"
               required
               min="0"
-              max="5"
-              value={formData.rating.count}
+              value={
+                //formData.rating.count
+                c
+              }
               onChange={handleChange}
             />
           </div>
@@ -326,34 +352,34 @@ function App() {
         ProductsContainer.innerHTML = "";
 
         ProductsContainer.innerHTML += `<div class="row border-bottom">
-        <div class="row main align-items-center">
-          <div class="col">Item:</div>
-          <div class="col">Image:</div>
-          <div class="col">Title:</div>
-          <div class="col">Category:</div>
-          <div class="col">Description:</div>
-          <div class="col">Price:</div>
-          <div class="col">Rating:</div>
-        </div>
-      </div>`;
+      <div class="row main align-items-center">
+        <div class="col">Item:</div>
+        <div class="col">Image:</div>
+        <div class="col">Title:</div>
+        <div class="col">Category:</div>
+        <div class="col">Description:</div>
+        <div class="col">Price:</div>
+        <div class="col">Rating:</div>
+      </div>
+    </div>`;
 
         // Read every movie from the array
         for (var i = 0; i < myProducts.length; i++) {
           ProductsContainer.innerHTML += `
-          <div class="row border-top" key=${myProducts[i]._id}>
-          <div class="row main align-items-center">
-            <div class="col">${myProducts[i].id}</div>
-            <div class="col">
-              <img class="img-fluid" width={30} src=${myProducts[i].image} alt="" />
-            </div>
-            <div class="col">${myProducts[i].title}</div>
-            <div class="col">${myProducts[i].category}</div>
-            <div class="col">${myProducts[i].description}</div>
-            <div class="col">${myProducts[i].price}</div>
-            <div class="col">${myProducts[i].rating.rate}</div>
+        <div class="row border-top" key=${myProducts[i]._id}>
+        <div class="row main align-items-center">
+          <div class="col">${myProducts[i].id}</div>
+          <div class="col">
+            <img class="img-fluid" width={30} src=${myProducts[i].image} alt="" />
           </div>
+          <div class="col">${myProducts[i].title}</div>
+          <div class="col">${myProducts[i].category}</div>
+          <div class="col">${myProducts[i].description}</div>
+          <div class="col">${myProducts[i].price}</div>
+          <div class="col">${myProducts[i].rating.rate}</div>
         </div>
-            `;
+      </div>
+          `;
         }
       }
     }
@@ -373,55 +399,55 @@ function App() {
         ProductsContainer.innerHTML = "";
 
         ProductsContainer.innerHTML += `
-          <div class="row border-bottom">
-            <div class="row main align-items-center">
-              <div class="col">Item:</div>
-              <div class="col">Image:</div>
-              <div class="col">Title:</div>
-              <div class="col">Category:</div>
-              <div class="col">Description:</div>
-              <div class="col">Price:</div>
-              <div class="col">Rating:</div>
-            </div>
+        <div class="row border-bottom">
+          <div class="row main align-items-center">
+            <div class="col">Item:</div>
+            <div class="col">Image:</div>
+            <div class="col">Title:</div>
+            <div class="col">Category:</div>
+            <div class="col">Description:</div>
+            <div class="col">Price:</div>
+            <div class="col">Rating:</div>
           </div>
-          `;
+        </div>
+        `;
 
         ProductsContainer.innerHTML += `
-          <div class="row border-top" key=${myProduct._id}>
-            <div class="row main align-items-center">
-              <div class="col">${myProduct.id}</div>
-              <div class="col">
-                <img class="img-fluid" width={30} src=${myProduct.image} alt="" />
-              </div>
-              <div class="col">${myProduct.title}</div>
-              <div class="col">${myProduct.category}</div>
-              <div class="col">${myProduct.description}</div>
-              <div class="col">${myProduct.price}</div>
-              <div class="col">${myProduct.rating.rate}</div>
+        <div class="row border-top" key=${myProduct._id}>
+          <div class="row main align-items-center">
+            <div class="col">${myProduct.id}</div>
+            <div class="col">
+              <img class="img-fluid" width={30} src=${myProduct.image} alt="" />
             </div>
+            <div class="col">${myProduct.title}</div>
+            <div class="col">${myProduct.category}</div>
+            <div class="col">${myProduct.description}</div>
+            <div class="col">${myProduct.price}</div>
+            <div class="col">${myProduct.rating.rate}</div>
           </div>
-            `;
+        </div>
+          `;
       }
     }
 
     return (
       <div className="container">
         <div class="row">
-        <div class="col">
-          <button class="btn border" onClick={LoadProducts}>
-            Get All Products
-          </button>
-        </div>
-        <div class="col">
-          <input
-            type="number"
-            id="SingleRobotByID"
-            placeholder="Enter product ID"
-          ></input>
-          <button class="btn border" onClick={LoadProduct}>
-            Get All Products
-          </button>
-        </div>
+          <div class="col">
+            <button class="btn border" onClick={LoadProducts}>
+              Get All Products
+            </button>
+          </div>
+          <div class="col">
+            <input
+              type="number"
+              id="SingleRobotByID"
+              placeholder="Enter product ID"
+            ></input>
+            <button class="btn border" onClick={LoadProduct}>
+              Get All Products
+            </button>
+          </div>
         </div>
         <br />
         <div id="ProductsContainer"></div>
