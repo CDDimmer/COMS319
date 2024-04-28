@@ -57,14 +57,14 @@ app.post("/addProduct", async (req, res) => {
                 const values = Object.values(req.body);
 
                 const rating = {
-                        rate: values[6],
-                        count: values[7],
+                        rate: parseFloat(values[6]),
+                        count: parseInt(values[7]),
                 };
 
                 const newDocument = {
-                        id: values[0],
+                        id: parseInt(values[0]),
                         title: values[1],
-                        price: values[2],
+                        price: parseFloat(values[2]),
                         description: values[3],
                         category: values[4],
                         image: values[5],
