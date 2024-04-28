@@ -223,6 +223,9 @@ function App() {
                 );
         }
 
+        var x;
+        var y;
+
         const CreateView = () => {
                 const [formData, setFormData] = useState({
                         id: "",
@@ -231,7 +234,7 @@ function App() {
                         description: "",
                         category: "",
                         image: "",
-                        rating: { rate: 0, count: 0 },
+                        rating: { rate: x, count: y },
                 });
 
                 const handleChange = (e) => {
@@ -254,7 +257,7 @@ function App() {
                                 description: "",
                                 category: "",
                                 image: "",
-                                rating: { rate: 0, count: 0 },
+                                rating: { rate: x, count: y },
                         });
                 };
 
@@ -274,6 +277,7 @@ function App() {
                                                         className="form-control"
                                                         id="id"
                                                         name="id"
+                                                        required
                                                         value={formData.id}
                                                         onChange={handleChange}
                                                 />
