@@ -442,7 +442,6 @@ function App() {
 
         function ReadView() {
                 function LoadProducts() {
-                        // Read the robots from mongoDB:
                         fetch("http://127.0.0.1:8081/listProducts")
                                 .then((response) => response.json())
                                 .then((myProducts) => loadMyRobots(myProducts));
@@ -468,7 +467,6 @@ function App() {
       </div>
     </div>`;
 
-                                // Read every movie from the array
                                 for (var i = 0; i < myProducts.length; i++) {
                                         ProductsContainer.innerHTML += `
         <div class="row border-top" key=${myProducts[i]._id}>
