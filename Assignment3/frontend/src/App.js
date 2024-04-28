@@ -261,7 +261,6 @@ function App() {
                                         console.log(
                                                 "Product added successfully!"
                                         );
-                                        // Optionally, you can redirect the user or perform any other action here
                                 } else {
                                         console.error("Failed to add product");
                                 }
