@@ -227,11 +227,11 @@ function App() {
                 const [formData, setFormData] = useState({
                         id: 0,
                         title: "",
-                        price: 0,
+                        price: 0.0,
                         description: "",
                         category: "",
                         image: "",
-                        rate: 0,
+                        rate: 0.0,
                         count: 0,
                 });
 
@@ -271,11 +271,11 @@ function App() {
                                 setFormData({
                                         id: 0,
                                         title: "",
-                                        price: 0,
+                                        price: 0.0,
                                         description: "",
                                         category: "",
                                         image: "",
-                                        rate: 0,
+                                        rate: 0.0,
                                         count: 0,
                                 });
                         }
@@ -328,6 +328,7 @@ function App() {
                                                 </label>
                                                 <input
                                                         type="number"
+                                                        step="any"
                                                         className="form-control"
                                                         id="price"
                                                         name="price"
@@ -399,6 +400,7 @@ function App() {
                                                 </label>
                                                 <input
                                                         type="number"
+                                                        step="any"
                                                         className="form-control"
                                                         id="rate"
                                                         name="rate"
