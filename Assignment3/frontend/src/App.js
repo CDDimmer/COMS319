@@ -223,8 +223,8 @@ function App() {
                 );
         }
 
-        var x;
-        var y;
+        var r;
+        var c;
 
         const CreateView = () => {
                 const [formData, setFormData] = useState({
@@ -234,7 +234,7 @@ function App() {
                         description: "",
                         category: "",
                         image: "",
-                        rating: { rate: x, count: y },
+                        rating: { rate: r, count: c },
                 });
 
                 const handleChange = (e) => {
@@ -245,20 +245,43 @@ function App() {
                         }));
                 };
 
-                const handleSubmit = (e) => {
+                const handleSubmit = async (e) => {
                         e.preventDefault();
-                        // Here you can send the formData to your backend using the POST method
-                        console.log("Form Data:", formData);
-                        // Reset the form after submission
-                        setFormData({
-                                id: "",
-                                title: "",
-                                price: "",
-                                description: "",
-                                category: "",
-                                image: "",
-                                rating: { rate: x, count: y },
-                        });
+                        try {
+                                const response = await fetch(
+                                        "http://localhost:8081/addProduct",
+                                        {
+                                                method: "POST",
+                                                headers: {
+                                                        "Content-Type":
+                                                                "application/json",
+                                                },
+                                                body: JSON.stringify(formData),
+                                        }
+                                );
+                                if (response.ok) {
+                                        console.log(
+                                                "Product added successfully!"
+                                        );
+                                        // Optionally, you can redirect the user or perform any other action here
+                                } else {
+                                        console.error("Failed to add product");
+                                }
+                        } catch (error) {
+                                console.error("Error:", error);
+                        } finally {
+                                r = null;
+                                c = null;
+                                setFormData({
+                                        id: "",
+                                        title: "",
+                                        price: "",
+                                        description: "",
+                                        category: "",
+                                        image: "",
+                                        rating: { rate: r, count: c },
+                                });
+                        }
                 };
 
                 return (
@@ -386,8 +409,8 @@ function App() {
                                                         min="0"
                                                         max="5"
                                                         value={
-                                                                formData.rating
-                                                                        .rate
+                                                                //formData.rating.rate
+                                                                r
                                                         }
                                                         onChange={handleChange}
                                                 />
@@ -406,10 +429,9 @@ function App() {
                                                         name="rating.count"
                                                         required
                                                         min="0"
-                                                        max="5"
                                                         value={
-                                                                formData.rating
-                                                                        .count
+                                                                //formData.rating.count
+                                                                c
                                                         }
                                                         onChange={handleChange}
                                                 />
