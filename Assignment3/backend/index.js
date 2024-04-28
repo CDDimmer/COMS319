@@ -56,6 +56,11 @@ app.post("/addProduct", async (req, res) => {
                 const keys = Object.keys(req.body);
                 const values = Object.values(req.body);
 
+                const rating = {
+                        rate: values[6],
+                        count: values[7],
+                };
+
                 const newDocument = {
                         id: values[0],
                         title: values[1],
@@ -63,7 +68,7 @@ app.post("/addProduct", async (req, res) => {
                         description: values[3],
                         category: values[4],
                         image: values[5],
-                        rating: values[6],
+                        rating: rating,
                 };
 
                 console.log(newDocument);
