@@ -1,0 +1,162 @@
+[
+    {
+       "name":"Gentle Doctor Cafe",
+       "category":"Cafes",
+       "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTR1R8zRMW-WYNojVDcQuiZkp3aCCBq2hVRKjgOyC_zDDfQF1SCu1v9U3PMutu9CzNPUCc&usqp=CAU",
+       "altText":"Image of the Gentle Doctor Cafe",
+       "desc":"The Gentle Doctor Cafe is a cafe located within the College of Veterinary Medicine.",
+       "Rating":0
+    },
+    {
+       "name":"Courtyard Cafe",
+       "category":"Cafes",
+       "image":"https://10619-2.s.cdn12.com/rests/original/103_505401064.jpg",
+       "altText":"Image of the Courtyard Cafe.",
+       "desc":"The Courtyard Cafe is a cafe located within Lagomarcino Hall. This cafe also serves Starbucks coffee.",
+       "Rating":0
+    },
+    {
+       "name":"MU Market and Cafe",
+       "category":"Cafes",
+       "image":"https://www.mu.iastate.edu/media/cms/MU_Market__Cafe_AD0D73F9DB50A.png",
+       "altText":"Image of the MU Market and Cafe.",
+       "desc":"The MU Market and Cafe is a little convenience store and cafe located within the Memorial Union.",
+       "Rating":0
+    },
+    {
+       "name":"Bookends Cafe",
+       "category":"Cafes",
+       "image":"https://www.lib.iastate.edu/files/styles/width_limit/public/images/2023-07/Bookends%20Cafe%202%20-%20reduced%20size.jpg?itok=ZZAjf-UD",
+       "altText":"Image of Bookends Cafe",
+       "desc":"The Bookends Cafe is a cafe located on the first floor of Parks Library.",
+       "Rating":0
+    },
+    {
+       "name":"Design Cafe",
+       "category":"Cafes",
+       "image":"https://10619-2.s.cdn12.com/rests/original/101_503432553.jpg",
+       "altText":"Image of entrance to Design Cafe",
+       "desc":"The Design Cafe is a cafe located within the College of Design.",
+       "Rating":0
+    },
+    {
+       "name":"Business Cafe",
+       "category":"Cafes",
+       "image":"https://10619-2.s.cdn12.com/rests/original/104_337286097.jpg",
+       "altText":"Image of the Business Cafe",
+       "desc":"The Business Cafe is a cafe located within the Gerdin Business Building.",
+       "Rating":0
+    },
+    {
+       "name":"Roasterie",
+       "category":"Cafes",
+       "image":"https://www.flyinghippo.com/wp-content/uploads/2021/01/roasterie1.jpg",
+       "altText":"Image of the Roasterie",
+       "desc":"The Roasterie is a cafe located in a building outside of Parks Library. It is right next to the Heaping Plato.",
+       "Rating":0
+    },
+    {
+       "name":"East Side Market",
+       "category":"ConvenienceStore",
+       "image":"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Iowa_State_Cyclones_logo.svg/2560px-Iowa_State_Cyclones_logo.svg.png",
+       "altText":"No picture found for East Side Market, utilizing ISU logo as default image",
+       "desc":"The East Side Market is a small convienience located within the Maple-Willow-Larch commons. It also is a Get & Go location.",
+       "Rating":0
+    },
+    {
+       "name":"West Side Market",
+       "category":"ConvenienceStore",
+       "image":"https://iowastatedaily.com/wp-content/uploads/2018/01/836cef3062b23e31a61ca96c368ed0bd-900x600.jpg",
+       "altText":"Picture outside of West Side Market",
+       "desc":"The West Side Market is a small convienience located within the Union Drive Community Center. It also is a Get & Go location.",
+       "Rating":0
+    },
+    {
+       "name":"Union Drive Marketplace",
+       "category":"DiningCenter",
+       "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIA9RimA-PFYn2viNh-Gm_D_iNw0Csg49xRMZimO20X61sY9fkzVHuk1McRkG0w0-03EU&usqp=CAU",
+       "altText":"Image of the inside of Union Drive Marketplace.",
+       "desc":"Union Drive Marketplace is a fully-staffed dining center located within the Union Drive Community Center.",
+       "Rating":0
+    },
+    {
+       "name":"Seasons Marketplace",
+       "category":"DiningCenter",
+       "image":"https://archive.inside.iastate.edu/2009/0820/img/MWLserve395.jpg",
+       "altText":"Image of the inside of Seasons Marketplace.",
+       "desc":"Seasons Marketplace is a fully-staffed dining center located within Maple-Willow-Larch.",
+       "Rating":0
+    },
+    {
+       "name":"Lance and Ellie's",
+       "category":"FastCasual",
+       "image":"https://www.flyinghippo.com/wp-content/uploads/2021/01/le1.jpg",
+       "altText":"Image of Lance and Ellie's",
+       "desc":"Lance and Ellie's is a small sandwich bar located within the Memorial Union.",
+       "Rating":0
+    },
+    {
+       "name":"Heaping Plato",
+       "category":"FastCasual",
+       "image":"https://bakergroup.com/wp-content/uploads/2019/06/Copyright-All-Rights-Reserved-Bakergroup-Picture-ISUHub2-919x500.jpg",
+       "altText":"Image of the Heaping Plato.",
+       "desc":"The Heaping Plato is a small eating spot located in a building right outside of Parks Library that also has a cafe. It is right next to the Roasterie.",
+       "Rating":0
+    },
+    {
+       "name":"Hawthorn",
+       "category":"FastCasual",
+       "image":"https://archive.inside.iastate.edu/2011/0901/img/fredcourt.jpg",
+       "altText":"Image of Hawthorn.",
+       "desc":"The Hawthorn Market and Cafe is a cafe and dining area located within the Frederiksen Court Community Center.",
+       "Rating":0
+    },
+    {
+       "name":"Memorial Union Food Court",
+       "category":"FastCasual",
+       "image":"https://www.inside.iastate.edu/media/2020/09/Q7Z1.jpg",
+       "altText":"Image of Pono Poke, a specific food counter inside the Memorial Union Food Court.",
+       "desc":"The Memorial Union Food Court is a food court inside of the Memorial Union that has multiple food options for preferences.",
+       "Rating":0
+    },
+    {
+       "name":"Clyde's",
+       "category":"FastCasual",
+       "image":"https://10619-2.s.cdn12.com/rests/original/106_501954801.jpg",
+       "altText":"Image of inside Clyde's",
+       "desc":"Clyde's is a diner located inside the Union Drive Cmmunity Center. This location serves Starbucks coffee.",
+       "Rating":0
+    },
+    {
+       "name":"Get & Go @ East Side Market",
+       "category":"GetGo",
+       "image":"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Iowa_State_Cyclones_logo.svg/2560px-Iowa_State_Cyclones_logo.svg.png",
+       "altText":"No picture found for East Side Market, utilizing ISU logo as default image",
+       "desc":"The East Side Market is a Get & Go location located within the Maple-Willow-Larch commons.  It is also a small convienience store.",
+       "Rating":0
+    },
+    {
+       "name":"Get & Go @ West Side Market",
+       "category":"GetGo",
+       "image":"https://iowastatedaily.com/wp-content/uploads/2018/01/836cef3062b23e31a61ca96c368ed0bd-900x600.jpg",
+       "altText":"Picture outside of West Side Market",
+       "desc":"The West Side Market is a Get & Go location located within the Union Drive Community Center. It is also a small convienience store.",
+       "Rating":0
+    },
+    {
+       "name":"Get & Go @ Whirlybird's",
+       "category":"GetGo",
+       "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZP0VC4-Ay0RZ6npoBpZYiVQ7sAUR70DBQ3-e6VZM0j33Ue-AnXJW_Iyw8hjm4FU1XS0I&usqp=CAU",
+       "altText":"Picture at Whirlybirds",
+       "desc":"Whirlybird's is a Get & Go location located within State Gym.",
+       "Rating":0
+    },
+    {
+       "name":"Conversations",
+       "category":"GetGo",
+       "image":"https://archive.inside.iastate.edu/2010/0812/img/order.jpg",
+       "altText":"Picture taken at Conversations",
+       "desc":"Conversations is a Get & Go location located within the Oak-Elm Residence Hall",
+       "Rating":0
+    }
+ ]
