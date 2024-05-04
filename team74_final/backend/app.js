@@ -16,7 +16,7 @@ app.listen(PORT, () => {
 });
 
 // Basic get request for server test (set to default directory until further developed)
-app.get("/", async (req, res) => {
+app.get("/locations", async (req, res) => {
   try {
     const query = "SELECT * FROM result"; // Note: 'result' is a db table that for now is a basic implementation of our data from our midterm assignment.
     const [result] = await db.query(query); // Execute the query and wait for the result
