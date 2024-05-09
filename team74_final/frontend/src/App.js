@@ -16,13 +16,13 @@ function App() {
         // TODO: finish getLocations
         // TODO: finish getTopLocations
         // TODO: finish getReviews
-        // TODO: connect these 4 functions into the views they need to be in:
-        // TODO: getLocations: LocationListView
-        // TODO: getTopLocations: BrowseView
-        // TODO: getLocation: LocationView
-        // TODO: getReviews: LocationView
         // TODO: remove all of the fake data used for testing.
-        // Anytime the user clicks on a location, the location variable should be updated to that location.
+        // TODO: connect these 4 functions into the views they need to be in:
+        // getLocations: LocationListView
+        // getTopLocations: BrowseView
+        // getLocation: LocationView
+        // getReviews: LocationView
+        // Anytime the user clicks on a location card, the location variable should be updated to that location.
         // Anytime the user goes to a category menu in the navbar, the category variable should be updated to that category.
         // The get functions should use the location and category variables to know what to request from the backend.
 
@@ -68,11 +68,13 @@ function App() {
 
         function setLocation(newLocation, viewNum) {
                 location = newLocation;
+                console.log("location");
                 setViewer(viewNum);
         }
 
         function setCategory(newCategory, viewNum) {
                 category = newCategory;
+                console.log("category");
                 setViewer(viewNum);
         }
 
