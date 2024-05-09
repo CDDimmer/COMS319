@@ -1,15 +1,18 @@
 import "bootstrap/dist/css/bootstrap.css";
-import { Container, Card, Nav, Navbar } from "react-bootstrap";
+import { Container, Card, Nav, Navbar, Row, Col } from "react-bootstrap";
 import Iastate from "./iastate.jpg";
 import { useForm } from "react-hook-form";
 import React, { useState, useEffect } from "react";
 import "./app.css";
 
 var location = "";
+var category = "";
 
 function App() {
         const baseURL = "http://localhost:4000/";
         const [viewer, setViewer] = useState(0);
+
+        // TODO: finish getLocations and create all of the requests that the front end makes to the backend. The ui is done but it is not connected to the backend.
 
         const topLocations = [
                 //This is temporary, it will be replaced with fetch requests in the create top locations cards.
@@ -52,6 +55,11 @@ function App() {
 
         function setLocation(newLocation, viewNum) {
                 location = newLocation;
+                setViewer(viewNum);
+        }
+
+        function setCategory(newCategory, viewNum) {
+                category = newCategory;
                 setViewer(viewNum);
         }
 
@@ -227,7 +235,84 @@ function App() {
                 );
         }
 
-        function LocationListView() {}
+        function getLocations() {
+                return [
+                        {
+                                id: 1,
+                                name: "Entity 1",
+                                rating: 4.5,
+                                description: "Description for Entity 1",
+                                image: "https://via.placeholder.com/150",
+                        },
+                        {
+                                id: 2,
+                                name: "Entity 2",
+                                rating: 3.8,
+                                description: "Description for Entity 2",
+                                image: "https://via.placeholder.com/150",
+                        },
+                        // Add more entities as needed
+                ];
+        }
+
+        function LocationListView() {
+                var locations = [];
+                locations = getLocations(category);
+                return (
+                        <Container>
+                                <Row xs={1} md={1} lg={1} className="g-4">
+                                        {" "}
+                                        {locations.map((location, index) => (
+                                                <Col key={index}>
+                                                        <Card className="h-100">
+                                                                <Row className="g-0">
+                                                                        <Col
+                                                                                md={
+                                                                                        4
+                                                                                }
+                                                                        >
+                                                                                <Card.Img
+                                                                                        src={
+                                                                                                location.image
+                                                                                        }
+                                                                                        alt={
+                                                                                                location.name
+                                                                                        }
+                                                                                        className="h-100"
+                                                                                />
+                                                                        </Col>
+                                                                        <Col
+                                                                                md={
+                                                                                        8
+                                                                                }
+                                                                        >
+                                                                                <Card.Body>
+                                                                                        <Card.Title>
+                                                                                                {
+                                                                                                        location.name
+                                                                                                }
+                                                                                        </Card.Title>
+                                                                                        <Card.Text>
+                                                                                                Rating:{" "}
+                                                                                                {
+                                                                                                        location.rating
+                                                                                                }
+                                                                                        </Card.Text>
+                                                                                        <Card.Text>
+                                                                                                {
+                                                                                                        location.description
+                                                                                                }
+                                                                                        </Card.Text>
+                                                                                </Card.Body>
+                                                                        </Col>
+                                                                </Row>
+                                                        </Card>
+                                                </Col>
+                                        ))}
+                                </Row>
+                        </Container>
+                );
+        }
 
         function ReviewSubmittedView() {
                 return (
@@ -617,6 +702,39 @@ function App() {
                                                 onClick={() => setViewer(0)}
                                         >
                                                 Home
+                                        </Nav.Link>
+                                </Nav.Item>
+                                <Nav.Item>
+                                        <Nav.Link
+                                                className="text-center text-danger"
+                                                onClick={() =>
+                                                        setCategory("food", 3)
+                                                }
+                                        >
+                                                Food
+                                        </Nav.Link>
+                                </Nav.Item>
+                                <Nav.Item>
+                                        <Nav.Link
+                                                className="text-center text-danger"
+                                                onClick={() =>
+                                                        setCategory(
+                                                                "academic",
+                                                                3
+                                                        )
+                                                }
+                                        >
+                                                Academic
+                                        </Nav.Link>
+                                </Nav.Item>
+                                <Nav.Item>
+                                        <Nav.Link
+                                                className="text-center text-danger"
+                                                onClick={() =>
+                                                        setCategory("dorms", 3)
+                                                }
+                                        >
+                                                Dorms
                                         </Nav.Link>
                                 </Nav.Item>
                                 <Nav.Item>
