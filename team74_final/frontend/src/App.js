@@ -21,6 +21,10 @@ function App() {
         // TODO: getTopLocations: BrowseView
         // TODO: getLocation: LocationView
         // TODO: getReviews: LocationView
+        // TODO: remove all of the fake data used for testing.
+        // Anytime the user clicks on a location, the location variable should be updated to that location.
+        // Anytime the user goes to a category menu in the navbar, the category variable should be updated to that category.
+        // The get functions should use the location and category variables to know what to request from the backend.
 
         //This is temporary and needs to be replaced with getTopLocations.
         const topLocations = [
@@ -244,25 +248,35 @@ function App() {
                 );
         }
 
+        // This test data needs to be removed and replaced with the actual function. This should get called by LocationListView.
         function getLocations() {
                 return [
                         {
                                 id: 1,
-                                name: "Entity 1",
+                                name: "Location 1",
                                 rating: 4.5,
-                                description: "Description for Entity 1",
+                                description: "Description for Location 1",
                                 image: "https://via.placeholder.com/150",
                         },
                         {
                                 id: 2,
-                                name: "Entity 2",
+                                name: "Location 2",
                                 rating: 3.8,
-                                description: "Description for Entity 2",
+                                description: "Description for Location 2",
                                 image: "https://via.placeholder.com/150",
                         },
                         // Add more entities as needed
                 ];
         }
+
+        // This should get called by the LocationView function.
+        function getLocation() {}
+
+        // This should get called by the createTopLocationCards function.
+        function getTopLocations() {}
+
+        // This should get called by the showReivews function.
+        function getReviews() {}
 
         function LocationListView() {
                 var locations = [];
