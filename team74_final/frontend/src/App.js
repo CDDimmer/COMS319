@@ -5,6 +5,8 @@ import { useForm } from "react-hook-form";
 import React, { useState, useEffect } from "react";
 import "./app.css";
 
+var location = "";
+
 function App() {
         const baseURL = "http://localhost:4000/";
         const [viewer, setViewer] = useState(0);
@@ -48,11 +50,20 @@ function App() {
                 },
         ];
 
-        function createTopLocationCards() {
+        function setLocation(newLocation) {
+                location = newLocation;
+                setViewer(2);
+        }
+
+        function createTopLocationCards(category) {
+                return createLocationCards(category);
+        }
+
+        function createLocationCards(category) {
                 return topLocations.map((location, index) => (
                         <Nav.Link
                                 className="text-center text-danger"
-                                onClick={() => setViewer(0)}
+                                onClick={() => setLocation(location)}
                         >
                                 <Card
                                         key={index}
@@ -91,6 +102,64 @@ function App() {
                 ));
         }
 
+        function LocationView() {
+                return (
+                        <div>
+                                <div
+                                        className="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light"
+                                        style={backgroundImageStyle}
+                                >
+                                        <div className="col-md-5 p-lg-5 mx-auto my-5"></div>
+                                        <div className="product-device shadow-sm d-none d-md-block"></div>
+                                        <div className="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+                                </div>
+
+                                <h1>Name</h1>
+                                <h3>Description</h3>
+                                <h3>Average Rating</h3>
+                                <h3>Reviews</h3>
+                                <div className="d-flex flex-wrap">
+                                        reviews go here
+                                </div>
+                        </div>
+                );
+        }
+
+        // Sample review
+        const review = {
+                rating: 4,
+                reviewText: "This product exceeded my expectations. Highly recommended!",
+                date: "May 15, 2024",
+        };
+
+        function showReviews() {}
+
+        //This function will arrange all of the reviews individually and send them back to showReviews().
+        function arrangeReviews() {
+                const { rating, reviewText, date } = review;
+                return (
+                        <Card className="mb-3">
+                                <Card.Body>
+                                        <div className="d-flex align-items-center mb-2">
+                                                <div className="me-3">
+                                                        <span className="fw-bold">
+                                                                Rating:
+                                                        </span>{" "}
+                                                        {rating}/5
+                                                </div>
+                                                <div className="flex-grow-1">
+                                                        <span className="fw-bold">
+                                                                Date:
+                                                        </span>{" "}
+                                                        {date}
+                                                </div>
+                                        </div>
+                                        <p className="mb-0">{reviewText}</p>
+                                </Card.Body>
+                        </Card>
+                );
+        }
+
         const backgroundImageStyle = {
                 backgroundImage: `url(${Iastate})`,
                 backgroundSize: "cover",
@@ -112,7 +181,7 @@ function App() {
                                 </div>
 
                                 <Container className="mt-5">
-                                        <h1>Top Places to Ea</h1>
+                                        <h1>Top Places to Eat</h1>
                                         <div className="d-flex flex-wrap">
                                                 {createTopLocationCards()}
                                         </div>
@@ -417,6 +486,9 @@ function App() {
                                         <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4 bg-danger">
                                                 {viewer === 0 && <BrowseView />}
                                                 {viewer === 1 && <ClassView />}
+                                                {viewer === 2 && (
+                                                        <LocationView />
+                                                )}
                                         </div>
                                 </div>
                         </div>
