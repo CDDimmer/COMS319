@@ -29,11 +29,44 @@ app.get("/locations", async (req, res) => {
   }
 });
 
+app.get("/locations/:id", async (req, res) => {
+  try {
+    // Read id from frontend
+    const itemId = req.params.id;
+
+    const query = "SELECT * FROM places where placeID=?"; // Note: 'result' is a db table that for now is a basic implementation of our data from our midterm assignment.
+    const [result] = await db.query(query, itemId); // Execute the query and wait for the result
+    console.log("Success in Reading MySQL");
+    res.status(200).send(result); // Send the results as the response
+  } catch (err) {
+    // If an error occurs, catch it and send an appropriate error response
+    console.error("Error in Reading MySQL :", err);
+    res.status(500).send({ error: "An error occurred while fetching items." });
+  }
+});
+
 // get request for all the comments
 app.get("/comments", async (req, res) => {
   try {
     const query = "SELECT * FROM comments"; // Note: 'result' is a db table that for now is a basic implementation of our data from our midterm assignment.
     const [result] = await db.query(query); // Execute the query and wait for the result
+    console.log("Success in Reading MySQL");
+    res.status(200).send(result); // Send the results as the response
+  } catch (err) {
+    // If an error occurs, catch it and send an appropriate error response
+    console.error("Error in Reading MySQL :", err);
+    res.status(500).send({ error: "An error occurred while fetching items." });
+  }
+});
+
+// get request for all the comments
+app.get("/comments/:id", async (req, res) => {
+  try {
+    // Read id from frontend
+    const itemId = req.params.id;
+
+    const query = "SELECT * FROM comments where placeID=?"; // Note: 'result' is a db table that for now is a basic implementation of our data from our midterm assignment.
+    const [result] = await db.query(query, itemId); // Execute the query and wait for the result
     console.log("Success in Reading MySQL");
     res.status(200).send(result); // Send the results as the response
   } catch (err) {

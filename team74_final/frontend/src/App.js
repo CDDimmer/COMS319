@@ -9,10 +9,10 @@ var category = "";
 
 function App() {
   const baseURL = "http://localhost:4000/";
-  const Iastate = "http://localhost:4000/images/iastate.jpg";
+  const Iastate = baseURL + "images/iastate.jpg";
   const [viewer, setViewer] = useState(0);
   const [Places, setPlaces] = useState([]);
-  const [Comments, setcomments] = useState([]);
+  const [Comments, setComments] = useState([]);
 
   // TODO: finish getLocation
   // TODO: finish getLocations
@@ -44,6 +44,22 @@ function App() {
           (place) => place.category === category
         );
         setPlaces(filteredPlaces);
+      });
+  }
+
+  function getAllComments() {
+    fetch(baseURL + "comments")
+      .then((response) => response.json())
+      .then((data) => {
+        setComments(data);
+      });
+  }
+
+  function getPlaceComments(placeID) {
+    fetch(baseURL + "comments/" + placeID)
+      .then((response) => response.json())
+      .then((data) => {
+        setComments(data);
       });
   }
 
@@ -124,7 +140,7 @@ function App() {
           <Card.Body>
             <Card.Title>{location.name}</Card.Title>
             <Card.Text>Rating: {location.rating}/5</Card.Text>
-            <Card.Text>{location.ratingCount} Ratings</Card.Text>
+            <Card.Text>{location.rating} Ratings</Card.Text>
           </Card.Body>
         </Card>
       </Nav.Link>
