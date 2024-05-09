@@ -229,6 +229,18 @@ function App() {
 
         function LocationListView() {}
 
+        function ReviewSubmittedView() {
+                return (
+                        <div className="container-fluid py-5 bg-danger">
+                                <div className="row justify-content-center">
+                                        <div className="col-md-6 text-center">
+                                                <h1>Review Submitted</h1>
+                                        </div>
+                                </div>
+                        </div>
+                );
+        }
+
         const WriteReviewView = () => {
                 const [formData, setFormData] = useState({
                         name: location.name,
@@ -248,7 +260,7 @@ function App() {
                         e.preventDefault();
                         try {
                                 const response = await fetch(
-                                        "http://localhost:8081/addProduct",
+                                        "http://localhost:4000/", //We need to hook up the frontend to the backend.
                                         {
                                                 method: "POST",
                                                 headers: {
@@ -260,59 +272,70 @@ function App() {
                                 );
                                 if (response.ok) {
                                         console.log(
-                                                "Product added successfully!"
+                                                "Review added successfully!"
                                         );
                                 } else {
-                                        console.error("Failed to add product");
+                                        console.error("Failed to save review");
                                 }
                         } catch (error) {
                                 console.error("Error:", error);
                         } finally {
                                 setFormData({
-                                        id: 0,
-                                        title: "",
-                                        price: 0.0,
-                                        description: "",
-                                        category: "",
-                                        image: "",
-                                        rate: 0.0,
-                                        count: 0,
+                                        name: location.name,
+                                        rating: 0,
+                                        review: "",
                                 });
+                                setViewer(5);
                         }
                 };
 
                 return (
                         <div className="container">
-                                <h1>Add New Product</h1>
+                                <h1>Leave a Review</h1>
                                 <form onSubmit={handleSubmit}>
                                         <div className="mb-3">
                                                 <label
                                                         htmlFor="id"
                                                         className="form-label"
                                                 >
-                                                        Product ID
+                                                        Rating
                                                 </label>
-                                                <input
+                                        </div>
+                                        <div className="mb-3">
+                                                <select
                                                         type="number"
-                                                        className="form-control"
-                                                        id="id"
-                                                        name="id"
-                                                        required
-                                                        value={formData.id}
+                                                        name="rating"
+                                                        id="rating"
                                                         onChange={handleChange}
-                                                />
+                                                >
+                                                        <option value="volvo">
+                                                                1
+                                                        </option>
+                                                        <option value="saab">
+                                                                2
+                                                        </option>
+                                                        <option value="mercedes">
+                                                                3
+                                                        </option>
+                                                        <option value="audi">
+                                                                4
+                                                        </option>
+                                                        <option value="audi">
+                                                                5
+                                                        </option>
+                                                </select>
                                         </div>
                                         <div className="mb-3">
                                                 <label
                                                         htmlFor="description"
                                                         className="form-label"
                                                 >
-                                                        Description
+                                                        Review
                                                 </label>
                                                 <textarea
                                                         className="form-control"
-                                                        id="description"
-                                                        name="description"
+                                                        id="review"
+                                                        name="review"
                                                         required
                                                         value={
                                                                 formData.description
@@ -627,6 +650,9 @@ function App() {
                                                 )}
                                                 {viewer === 4 && (
                                                         <WriteReviewView />
+                                                )}
+                                                {viewer === 5 && (
+                                                        <ReviewSubmittedView />
                                                 )}
                                         </div>
                                 </div>
