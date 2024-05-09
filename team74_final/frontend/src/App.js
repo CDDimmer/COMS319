@@ -4,13 +4,50 @@ import React, { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
+import NavDropdown from "react-bootstrap/NavDropdown";
 
 function App() {
   const baseURL = "http://localhost:4000/";
   const [viewer, setViewer] = useState(0);
+  const [places, setPlaces] = useState([]);
 
   function BrowseView() {
-    return <div>BrowseView here</div>;
+    const [places, setPlaces] = useState([]);
+    useEffect(() => {
+      fetch(baseURL + "locations")
+        .then((response) => response.json())
+        .then((data) => {
+          setPlaces(data);
+          console.log("Data grabbed");
+        });
+    }, []);
+
+    return (
+      <div>
+        {places.map((el) => (
+          <div class="row featurette my-4 border border-black rounded-3" key={el.id}>
+            <div class="col-md-7 order-md-2">
+              <h2
+                class="featurette-heading fw-normal lh-1"
+                style={{ textAlign: "center", marginBottom: "2rem" }}
+              >
+                {el.name} - {el.rating}/5
+              </h2>
+              <p class="lead">{el.desc}</p>
+            </div>
+            <div class="col-md-4 order-md-1 p-0">
+              <img
+                class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto rounded-3 border border-black"
+                width="300"
+                height="300"
+                src={el.image}
+                alt={el.alt}
+              ></img>
+            </div>
+          </div>
+        ))}
+      </div>
+    );
   }
 
   // View for student & class page:
@@ -172,7 +209,7 @@ function App() {
 
   function createSidebar() {
     return (
-      <Nav variant="underline" className="flex-column">
+      <Nav className="flex-column">
         <Nav.Item>
           <Nav.Link
             className="text-center text-danger"
@@ -181,8 +218,21 @@ function App() {
             Home
           </Nav.Link>
         </Nav.Item>
+        <NavDropdown
+          title={<span className="text-danger">Dropdown</span>}
+          id="basic-nav-dropdown"
+          className="text-center"
+        >
+          <NavDropdown.Item>Action</NavDropdown.Item>
+          <NavDropdown.Item>Another action</NavDropdown.Item>
+          <NavDropdown.Item>Something</NavDropdown.Item>
+        </NavDropdown>
+        <NavDropdown.Divider />
         <Nav.Item>
-          <Nav.Link className="text-center text-danger" onClick={() => setViewer(1)}>
+          <Nav.Link
+            className="text-center text-danger"
+            onClick={() => setViewer(1)}
+          >
             About
           </Nav.Link>
         </Nav.Item>
@@ -198,7 +248,10 @@ function App() {
           <div class="sidebar col-md-3 col-lg-2 p-0 bg-warning">
             {createSidebar()}
           </div>
-          <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4 bg-danger">
+          <div
+            id="contentContainer"
+            class="col-md-9 ms-sm-auto col-lg-10 px-md-4 bg-danger"
+          >
             {viewer === 0 && <BrowseView />}
             {viewer === 1 && <ClassView />}
           </div>
