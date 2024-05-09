@@ -12,8 +12,17 @@ function App() {
         const baseURL = "http://localhost:4000/";
         const [viewer, setViewer] = useState(0);
 
-        // TODO: finish getLocations and create all of the requests that the front end makes to the backend. The ui is done but it is not connected to the backend.
+        // TODO: finish getLocation
+        // TODO: finish getLocations
+        // TODO: finish getTopLocations
+        // TODO: finish getReviews
+        // TODO: connect these 4 functions into the views they need to be in:
+        // TODO: getLocations: LocationListView
+        // TODO: getTopLocations: BrowseView
+        // TODO: getLocation: LocationView
+        // TODO: getReviews: LocationView
 
+        //This is temporary and needs to be replaced with getTopLocations.
         const topLocations = [
                 //This is temporary, it will be replaced with fetch requests in the create top locations cards.
                 {
