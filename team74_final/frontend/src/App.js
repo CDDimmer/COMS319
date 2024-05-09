@@ -50,9 +50,9 @@ function App() {
                 },
         ];
 
-        function setLocation(newLocation) {
+        function setLocation(newLocation, viewNum) {
                 location = newLocation;
-                setViewer(2);
+                setViewer(viewNum);
         }
 
         function createTopLocationCards(category) {
@@ -63,7 +63,7 @@ function App() {
                 return topLocations.map((location, index) => (
                         <Nav.Link
                                 className="text-center text-danger"
-                                onClick={() => setLocation(location)}
+                                onClick={() => setLocation(location, 2)}
                         >
                                 <Card
                                         key={index}
@@ -71,7 +71,6 @@ function App() {
                                         style={{ width: "250px" }}
                                 >
                                         {" "}
-                                        {/* Set card width */}
                                         <Card.Img
                                                 variant="top"
                                                 src={location.image}
@@ -83,7 +82,6 @@ function App() {
                                                                 "7px 7px 0 0",
                                                 }}
                                         />{" "}
-                                        {/* Set image height and style */}
                                         <Card.Body>
                                                 <Card.Title>
                                                         {location.name}
@@ -107,35 +105,58 @@ function App() {
                         <div>
                                 <div
                                         className="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light"
-                                        style={backgroundImageStyle}
+                                        style={imageStyle}
                                 >
                                         <div className="col-md-5 p-lg-5 mx-auto my-5"></div>
                                         <div className="product-device shadow-sm d-none d-md-block"></div>
                                         <div className="product-device product-device-2 shadow-sm d-none d-md-block"></div>
                                 </div>
-
-                                <h1>Name</h1>
+                                <h1>Name of location goes here</h1>
+                                <h5>Average Rating: </h5>
                                 <h3>Description</h3>
-                                <h3>Average Rating</h3>
+                                <button
+                                        className="btn btn-warning border"
+                                        onClick={() => setViewer(4)}
+                                >
+                                        Write a Review
+                                </button>
                                 <h3>Reviews</h3>
                                 <div className="d-flex flex-wrap">
-                                        reviews go here
+                                        {showReviews()}
                                 </div>
                         </div>
                 );
         }
 
-        // Sample review
-        const review = {
-                rating: 4,
-                reviewText: "This product exceeded my expectations. Highly recommended!",
-                date: "May 15, 2024",
-        };
+        function showReviews() {
+                // Sample review
+                const reviews = [
+                        {
+                                rating: 4,
+                                reviewText: "Review goes here",
+                                date: "May 15, 2024",
+                        },
+                        {
+                                rating: 5,
+                                reviewText: "A review goes here!",
+                                date: "March 6, 2024",
+                        },
+                ];
 
-        function showReviews() {}
+                let reviewsHTML = [];
 
-        //This function will arrange all of the reviews individually and send them back to showReviews().
-        function arrangeReviews() {
+                for (var i = 0; i < reviews.length; i++) {
+                        console.log(reviews[i]);
+                        reviewsHTML.push(createReviewCards(reviews[i]));
+                }
+
+                console.log(reviewsHTML);
+
+                return <div>{reviewsHTML}</div>;
+        }
+
+        //This function will arrange each review into a card and send them back to showReviews().
+        function createReviewCards(review) {
                 const { rating, reviewText, date } = review;
                 return (
                         <Card className="mb-3">
@@ -149,7 +170,7 @@ function App() {
                                                 </div>
                                                 <div className="flex-grow-1">
                                                         <span className="fw-bold">
-                                                                Date:
+                                                                Review Date:
                                                         </span>{" "}
                                                         {date}
                                                 </div>
@@ -160,8 +181,16 @@ function App() {
                 );
         }
 
-        const backgroundImageStyle = {
+        const homeBackgroundImageStyle = {
                 backgroundImage: `url(${Iastate})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                minHeight: "400px",
+                borderRadius: "7px",
+        };
+
+        const imageStyle = {
+                backgroundImage: `url(${location.image})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 minHeight: "400px",
@@ -173,7 +202,7 @@ function App() {
                         <div>
                                 <div
                                         className="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light"
-                                        style={backgroundImageStyle}
+                                        style={homeBackgroundImageStyle}
                                 >
                                         <div className="col-md-5 p-lg-5 mx-auto my-5"></div>
                                         <div className="product-device shadow-sm d-none d-md-block"></div>
@@ -197,6 +226,110 @@ function App() {
                         </div>
                 );
         }
+
+        function LocationListView() {}
+
+        const WriteReviewView = () => {
+                const [formData, setFormData] = useState({
+                        name: location.name,
+                        rating: 0,
+                        review: "",
+                });
+
+                const handleChange = (e) => {
+                        const { name, value } = e.target;
+                        setFormData((prevData) => ({
+                                ...prevData,
+                                [name]: value,
+                        }));
+                };
+
+                const handleSubmit = async (e) => {
+                        e.preventDefault();
+                        try {
+                                const response = await fetch(
+                                        "http://localhost:8081/addProduct",
+                                        {
+                                                method: "POST",
+                                                headers: {
+                                                        "Content-Type":
+                                                                "application/json",
+                                                },
+                                                body: JSON.stringify(formData),
+                                        }
+                                );
+                                if (response.ok) {
+                                        console.log(
+                                                "Product added successfully!"
+                                        );
+                                } else {
+                                        console.error("Failed to add product");
+                                }
+                        } catch (error) {
+                                console.error("Error:", error);
+                        } finally {
+                                setFormData({
+                                        id: 0,
+                                        title: "",
+                                        price: 0.0,
+                                        description: "",
+                                        category: "",
+                                        image: "",
+                                        rate: 0.0,
+                                        count: 0,
+                                });
+                        }
+                };
+
+                return (
+                        <div className="container">
+                                <h1>Add New Product</h1>
+                                <form onSubmit={handleSubmit}>
+                                        <div className="mb-3">
+                                                <label
+                                                        htmlFor="id"
+                                                        className="form-label"
+                                                >
+                                                        Product ID
+                                                </label>
+                                                <input
+                                                        type="number"
+                                                        className="form-control"
+                                                        id="id"
+                                                        name="id"
+                                                        required
+                                                        value={formData.id}
+                                                        onChange={handleChange}
+                                                />
+                                        </div>
+                                        <div className="mb-3">
+                                                <label
+                                                        htmlFor="description"
+                                                        className="form-label"
+                                                >
+                                                        Description
+                                                </label>
+                                                <textarea
+                                                        className="form-control"
+                                                        id="description"
+                                                        name="description"
+                                                        required
+                                                        value={
+                                                                formData.description
+                                                        }
+                                                        onChange={handleChange}
+                                                ></textarea>
+                                        </div>
+                                        <button
+                                                type="submit"
+                                                className="btn btn-primary"
+                                        >
+                                                Submit
+                                        </button>
+                                </form>
+                        </div>
+                );
+        };
 
         // View for student & class page:
         function ClassView() {
@@ -488,6 +621,12 @@ function App() {
                                                 {viewer === 1 && <ClassView />}
                                                 {viewer === 2 && (
                                                         <LocationView />
+                                                )}
+                                                {viewer === 3 && (
+                                                        <LocationListView />
+                                                )}
+                                                {viewer === 4 && (
+                                                        <WriteReviewView />
                                                 )}
                                         </div>
                                 </div>
